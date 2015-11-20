@@ -16,4 +16,4 @@ Issues with the code as of 11/20/15:
 <li> Needs a way to combine filtering by both location and content. See the bottom of twitter.py </li>
 <li> Need to modify the latitude and longitude for New Hampshire. </li>
 <li> Need a way to click on the tweets on the map? </li>
-<li> Need to start sentiment analysis. <li>
+<li> Need to start sentiment analysis. </li>
