@@ -7,7 +7,7 @@ I have deleted my API keys, but left in where they should be in twitter.py. I ha
 
 How it should work: run the twitter.py file in the command line by typing in: python twitter.py
 
-Then when you have enough data, stop the twitter.py file and then run python tokenise.py to tokenise the code. Then to see the results of the map on your localhost, run python -m SimpleHTTPServer 8888 in the command line.
+Then when you have enough data, stop the twitter.py file and then run python tokenise.py to tokenise the json you've just streamed. Then to see the results of the map on your localhost, run python -m SimpleHTTPServer 8888 in the command line.
 
 This should get a local server running on localhost:8000 where you can see the map of the tweets.
 
