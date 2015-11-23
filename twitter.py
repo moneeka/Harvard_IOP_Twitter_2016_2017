@@ -28,4 +28,4 @@ class MyListener(StreamListener):
 twitter_stream = Stream(auth, MyListener())
 #twitter_stream.filter(track=['#Hillary'])
 #twitter_stream.filter(track=['#HillaryClinton'])
-twitter_stream.filter(locations=[-122.75,36.8,-121.75,37.8]).filter(track=['#Hillary'])
+twitter_stream.filter(locations=[-72.5623,42.751038,-71.480817,44.2500])
