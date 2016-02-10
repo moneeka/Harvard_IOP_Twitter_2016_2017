@@ -22,7 +22,7 @@ This should get a local server running on localhost:8000/map.html where you can 
 
 Where we are as of 02/10/2016:
 <ol>
-<li> We have downloaded considerable data for NH in the days leading up to the primary on Tuesday 02/09/16. See Google drive folder.<li>
+<li> We have downloaded considerable data for NH in the days leading up to the primary on Tuesday 02/09/16. See Google drive folder.</li>
 <li> Monica to write Python script that will use Geopy to filter out non-NH tweets.</li
 <li> Need to count the mentions of each candidate's name; Molly has ownership of this stage, which will take the filtered data and count how many times each candidate's name is mentioned.</li>
 <li> Goals: Display the data for each candidate on a website, and then develop a predictive model for the primaries on Twitter.</li>
