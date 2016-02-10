@@ -17,7 +17,7 @@ class MyListener(StreamListener):
 
     def on_data(self, data):
         try:
-            with open('newhampshire.json', 'a') as f:
+            with open('southcarolina.json', 'a') as f:
                 f.write(data)
                 return True
         except BaseException as e:
