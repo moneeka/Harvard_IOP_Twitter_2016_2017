@@ -18,7 +18,7 @@ How it should work: run the twitter.py file in the command line by typing in: py
 
 Then when you have enough data, stop the twitter.py file (^C) and then run python tokenise.py to tokenise the json you've just streamed. Then to see the results of the map on your localhost, run python -m SimpleHTTPServer 8888 in the command line.
 
-This should get a local server running on localhost:8000/map.html where you can see the map of the tweets.
+This should get a local server running on localhost:8888/map.html where you can see the map of the tweets.
 
 Where we are as of 02/10/2016:
 <ol>
