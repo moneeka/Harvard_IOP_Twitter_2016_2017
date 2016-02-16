@@ -17,29 +17,31 @@ for item in jsonData:
 	#taking the substring of the address to isolate the town
 	town = address[(index+2):]
 	index2 = town.index(',')
+	state = town[index2+2:]
 	town = town[:index2]
+	state_town = ','.join([town, state])
 	#now, the town should be completely isolated
 		
 	if 'sanders' in content:
-		key = '_'.join([town, 'sanders'])
+		key = '_'.join([state_town, 'sanders'])
 		if candidate_dict.has_key(key):
 			candidate_dict[key] += 1
 		else:
 			candidate_dict[key] = 1
 	if 'clinton' in content:
-		key = '_'.join([town, 'clinton'])
+		key = '_'.join([state_town, 'clinton'])
 		if candidate_dict.has_key(key):
 			candidate_dict[key] += 1
 		else:
 			candidate_dict[key] = 1
 	if 'trump' in content:
-		key = '_'.join([town, 'trump'])
+		key = '_'.join([state_town, 'trump'])
 		if candidate_dict.has_key(key):
 			candidate_dict[key] += 1
 		else:
 			candidate_dict[key] = 1
 	if 'cruz' in content:
-		key = '_'.join([town, 'cruz'])
+		key = '_'.join([state_town, 'cruz'])
 		if candidate_dict.has_key(key):
 			candidate_dict[key] += 1
 		else:
