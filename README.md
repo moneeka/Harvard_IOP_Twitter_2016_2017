@@ -1,5 +1,5 @@
 # IOPTwitter
-IOP Steam project
+Harvard IOP STEAM project
 
 This code is heavily based (read: basically taken from) on this <a href="http://marcobonzanini.com/2015/03/02/mining-twitter-data-with-python-part-1/">tutorial </a>.
 I have deleted my API keys, but left in where they should be in twitter.py. I have also deleted the files that contained any of the data I individually have pulled down from Twitter, since you're not allowed to publish that data by putting it in a public GitHub repo.
