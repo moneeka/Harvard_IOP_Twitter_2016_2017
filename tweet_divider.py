@@ -9,8 +9,8 @@ class tweet_divider():
 				data.append(json.loads(line))
 		data_file.close()
 
-		with open('partition1.json', 'w') as partition1_file:
-			with open('partition2.json', 'w') as partition2_file:
+		with open('coordinatePartion.json', 'w') as partition1_file:
+			with open('placePartion.json', 'w') as partition2_file:
 
 				for s in data:
 					if s["coordinates"] != None:
