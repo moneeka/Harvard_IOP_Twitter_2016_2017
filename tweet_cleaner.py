@@ -3,6 +3,7 @@ from geopy.geocoders import Nominatim
 
 class TweetCleaner():
     try:
+        # Sets up the geopy portion
         geolocator = Nominatim()
         data = []
         with open('coordinatePartition.json', 'r') as data_file: 
