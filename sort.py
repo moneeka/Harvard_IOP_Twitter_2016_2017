@@ -5,7 +5,7 @@ candidate_dict = {}
 
 #testbatch3.json will be replaced by whatever file we are using
 
-jsonData = json.loads(open('testbatch3.json').read())
+jsonData = json.loads(open('testbatch.json').read())
 
 for item in jsonData:
 	#print item.has_key("content")
@@ -22,25 +22,25 @@ for item in jsonData:
 	state_town = ','.join([town, state])
 	#now, the town should be completely isolated
 		
-	if 'sanders' in content:
+	if 'sanders' in content or 'bernie' in content or 'bern' in content:
 		key = '_'.join([state_town, 'sanders'])
 		if candidate_dict.has_key(key):
 			candidate_dict[key] += 1
 		else:
 			candidate_dict[key] = 1
-	if 'clinton' in content:
+	if 'clinton' in content or 'hillary' in content:
 		key = '_'.join([state_town, 'clinton'])
 		if candidate_dict.has_key(key):
 			candidate_dict[key] += 1
 		else:
 			candidate_dict[key] = 1
-	if 'trump' in content:
+	if 'trump' in content or 'donald' in content or 'apprentice' in content:
 		key = '_'.join([state_town, 'trump'])
 		if candidate_dict.has_key(key):
 			candidate_dict[key] += 1
 		else:
 			candidate_dict[key] = 1
-	if 'cruz' in content:
+	if 'cruz' in content or 'ted' in content:
 		key = '_'.join([state_town, 'cruz'])
 		if candidate_dict.has_key(key):
 			candidate_dict[key] += 1
