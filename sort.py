@@ -46,4 +46,7 @@ for item in jsonData:
 			candidate_dict[key] += 1
 		else:
 			candidate_dict[key] = 1
-print candidate_dict
+# put dictionary in a json file
+with open('dictionary.json', 'w') as dictionary
+	dictionary.write(json.dumps(candidate_dict))
+	dictionary.close()
