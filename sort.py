@@ -48,5 +48,7 @@ for item in jsonData:
 			candidate_dict[key] = 1
 # put dictionary in a json file
 with open('dictionary.json', 'w') as dictionary
-	dictionary.write(json.dumps(candidate_dict))
+	for key, value in candidate_dict
+		dictionary.write(json.dumps(key))
+		dictionary.write(json.dump(value))
 	dictionary.close()
