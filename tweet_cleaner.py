@@ -19,6 +19,7 @@ class TweetCleaner():
                 location = geolocator.reverse(tweet_lat_lon_coordinates)
 
                 if "Nevada" in location.address:
+                    s["address"] = str(location.address)
                     clean_data_file.write(json.dumps(s))
                     clean_data_file.write("\n")
 
