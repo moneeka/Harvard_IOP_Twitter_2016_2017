@@ -2,15 +2,20 @@ import json
 
 #creating the dictionary
 candidate_dict = {}
+#Creating a list
+jsonData=[]
 
 #testbatch3.json will be replaced by whatever file we are using
-
-jsonData = json.loads(open('testbatch.json').read())
+with open('nevada_tweets.json', 'r') as data_file:
+	for line in data_file:
+		# converts each line into a json object
+		jsonData.append(json.loads(line))
+        data_file.close()
 
 for item in jsonData:
 	#print item.has_key("content")
 
-	content = item['content']
+	content = item['text']
 	address = item['address']
 	#retrieving the index of the first comma in the address (ex: 11111 Euclid Ave, Cleveland, OH)
 	index = address.index(',')
@@ -22,7 +27,7 @@ for item in jsonData:
 	state_town = ','.join([town, state])
 	#now, the town should be completely isolated
 		
-	if 'sanders' in content or 'bernie' in content or 'bern' in content:
+	if 'Pharmacy' in content or 'bernie' in content or 'bern' in content:
 		key = '_'.join([state_town, 'sanders'])
 		if candidate_dict.has_key(key):
 			candidate_dict[key] += 1
@@ -47,8 +52,7 @@ for item in jsonData:
 		else:
 			candidate_dict[key] = 1
 # put dictionary in a json file
-with open('dictionary.json', 'w') as dictionary
-	for key, value in candidate_dict
-		dictionary.write(json.dumps(key))
-		dictionary.write(json.dump(value))
+with open('dictionary.json', 'w') as dictionary:
+	for s in candidate_dict:
+		dictionary.write(json.dumps(s))
 	dictionary.close()
