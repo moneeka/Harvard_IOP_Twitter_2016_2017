@@ -53,6 +53,6 @@ for item in jsonData:
 			candidate_dict[key] = 1
 # put dictionary in a json file
 with open('dictionary.json', 'w') as dictionary:
-	for s in candidate_dict:
-		dictionary.write(json.dumps(s))
+	for key, value in candidate_dict.iteritems():
+		dictionary.write(key + ": " + str(value))
 	dictionary.close()
