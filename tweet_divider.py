@@ -1,10 +1,10 @@
 import json
 
-class tweet_divider():
+def tweet_divider(dataFile, coordinateFile, placeFile):
 	try:
 		# Creates the list that will contain the objects contained in the json file 
 		data = []
-		with open('data.json') as data_file: 
+		with open(dataFile) as data_file: 
 
 			for line in data_file:
 				# converts each line into a json object
@@ -12,9 +12,9 @@ class tweet_divider():
 		data_file.close()
 
 		# Opens up the empty file that will store the tweets with actual coordinates
-		with open('coordinatePartition.json', 'w') as partition1_file:
+		with open(coordinateFile, 'w') as partition1_file:
 			# Opens up the empty file that will store the tweets with place and null coordinates
-			with open('placePartition.json', 'w') as partition2_file:
+			with open(placeFile, 'w') as partition2_file:
 
 				for s in data:
 					# Checks to see if the coordinates field is filled in
