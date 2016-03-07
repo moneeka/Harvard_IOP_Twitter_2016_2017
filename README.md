@@ -15,15 +15,15 @@ Things you will need before the instructions below will work for you:
 
 
 How it should work: run the twitter.py file in the command line by typing in: python twitter.py
+Assuming your raw data file from twitter.py is called "data.json" and the tweets belong to Florida, run the main method from the command line as follows:
 
-Then when you have enough data, stop the twitter.py file (^C) and then run python tokenise.py to tokenise the json you've just streamed. Then to see the results of the map on your localhost, run python -m SimpleHTTPServer 8888 in the command line.
+python main.py Florida data.json
 
-This should get a local server running on localhost:8888/map.html where you can see the map of the tweets.
-
-Where we are as of 02/10/2016:
+This will generate several json files: 
 <ol>
-<li> We have downloaded considerable data for NH in the days leading up to the primary on Tuesday 02/09/16. See Google drive folder.</li>
-<li> Monica to write Python script that will use Geopy to filter out non-NH tweets.</li
-<li> Need to count the mentions of each candidate's name; Molly has ownership of this stage, which will take the filtered data and count how many times each candidate's name is mentioned.</li>
-<li> Goals: Display the data for each candidate on a website, and then develop a predictive model for the primaries on Twitter.</li>
+	<li><b>coordinatePartition.json</b> contains the geo enabled tweets. It contains the tweets with the correct coordinates from where the user tweeted.</li>
+	<li><b>placePartion.json</b> contains the tweets that are not geo enabled. Thus, they only contain coordinates in the "place" object which correspond EITHER to where the user is tweeting from or where they're tweeting about.</li>
+	<li><b>state_tweets.json</b> contains the tweets that are confirmed to be in both the state and with proper coordinates. This file contains the tweets that will be mapped on the map.</li>
+	<li><b>dictionary.json</b> contains the number of times a candidate is mentioned in each state.</li>
+</ol>
 
