@@ -7,12 +7,12 @@ def main(argv):
 
 	state = argv[0]
 	dataFile = argv[1]
-	
+
 	stateFile = state + "_tweets.json"
-	
+
 	tweet_divider.tweet_divider(dataFile, 'coordinatePartition.json', 'placePartion.json')
 	tweet_cleaner.tweet_cleaner('coordinatePartition.json', stateFile, state)
-	sort.sort(stateFile, 'dictionary.json')
+	sort.sort('coordinatePartition.json', 'dictionary.json')
 
 if __name__ == "__main__":
    main(sys.argv[1:])
