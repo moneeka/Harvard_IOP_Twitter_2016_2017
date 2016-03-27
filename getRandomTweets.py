@@ -29,7 +29,7 @@ def get_rand_tweets(td, cand, t_num):
 
     t_list = td[cand]
     t_total = len(t_list)
-    if t_total < t_list:
+    if t_total < t_num:
         print 'list of tweets less than the number of tweets requested; printing ', t_total
         t_num = t_total
 
