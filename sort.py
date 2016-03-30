@@ -10,7 +10,7 @@ class Tweet:
 		self.create_at = created_at
 		
 
-def sort(dataFile, outputFile):
+def sort(dataFile, outputFile, state):
 
 		#testbatch3.json will be replaced by whatever file we are using
 
@@ -40,7 +40,7 @@ def sort(dataFile, outputFile):
 		state_town = town[:(index3+index4)]
 		#retrieving index of the third comma
 		#now, the town should be completely isolated'''
-		state_town = "Nevada"
+		state_town = state
 		candidate = " "
 		candidate_mention = False
 

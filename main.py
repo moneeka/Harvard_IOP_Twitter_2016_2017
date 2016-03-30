@@ -12,7 +12,7 @@ def main(argv):
 
 	tweet_divider.tweet_divider(dataFile, 'coordinatePartition.json', 'placePartion.json')
 	tweet_cleaner.tweet_cleaner('coordinatePartition.json', stateFile, state)
-	sort.sort('coordinatePartition.json', 'dictionary.json')
+	sort.sort('coordinatePartition.json', 'dictionary.json', state)
 
 if __name__ == "__main__":
    main(sys.argv[1:])
