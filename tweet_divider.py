@@ -4,6 +4,8 @@ def tweet_divider(dataFile, coordinateFile, placeFile):
 	try:
 		# Creates the list that will contain the objects contained in the json file 
 		data = []
+		political_words = ["trump", "cruz", "donald", "bernie", "sanders", "bern", "hillary", "clinton", "kasich"]
+
 		with open(dataFile) as data_file: 
 
 			for line in data_file:
@@ -20,8 +22,14 @@ def tweet_divider(dataFile, coordinateFile, placeFile):
 					# Checks to see if the coordinates field is filled in
 					if s["coordinates"] != None:
 						# Writes the json version of tweet into the appropriate file
-						partition1_file.write(json.dumps(s))
-						partition1_file.write("\n")
+						contains_politics = False
+						content = s['text']
+						for word in political_words:
+							if word in content.lower():
+								contains_politics = True
+						if contains_politics:
+							partition1_file.write(json.dumps(s))
+							partition1_file.write("\n")
 					else:
 						# Writes the json version of tweet that just has the place into the appropriate file
 						partition2_file.write(json.dumps(s))
