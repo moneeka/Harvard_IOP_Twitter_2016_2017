@@ -23,8 +23,7 @@ def sort(dataFile, outputFile, state):
 
 	for item in data:
 		content = item['text']
-		address = item['address']
-		coordinates = item['geo']['coordinates']
+		coordinates = item['coordinates']['coordinates']
 		created_at = item['created_at']
 		#retrieving the index of the first comma in the address (ex: 11111 Euclid Ave, Cleveland, OH)
 		'''index = address.index(',')
@@ -44,7 +43,7 @@ def sort(dataFile, outputFile, state):
 		candidate = " "
 		candidate_mention = False
 
-		if 'sanders' in content or 'bernie' in content or 'bern' in content:
+		if 'sanders' in content.lower() or 'bernie' in content.lower() or 'bern' in content.lower():
 			key = '_'.join([state_town, 'sanders'])
 			if candidate_dict.has_key(key):
 				candidate_dict[key] += 1
@@ -52,7 +51,7 @@ def sort(dataFile, outputFile, state):
 				candidate_dict[key] = 1
 			candidate = "sanders"
 			candidate_mention = True
-		if 'clinton' in content or 'hillary' in content:
+		if 'clinton' in content.lower() or 'hillary' in content.lower():
 			key = '_'.join([state_town, 'clinton'])
 			if candidate_dict.has_key(key):
 				candidate_dict[key] += 1
@@ -60,7 +59,7 @@ def sort(dataFile, outputFile, state):
 				candidate_dict[key] = 1
 			candidate = "clinton"
 			candidate_mention = True
-		if 'trump' in content or 'donald' in content or 'apprentice' in content:
+		if 'trump' in content.lower() or 'donald' in content.lower() or 'apprentice' in content.lower():
 			key = '_'.join([state_town, 'trump'])
 			if candidate_dict.has_key(key):
 				candidate_dict[key] += 1
@@ -68,7 +67,7 @@ def sort(dataFile, outputFile, state):
 				candidate_dict[key] = 1
 			candidate = "trump"
 			candidate_mention = True
-		if 'cruz' in content or ' ted' in content:
+		if 'cruz' in content.lower() or ' ted' in content.lower():
 			key = '_'.join([state_town, 'cruz'])
 			if candidate_dict.has_key(key):
 				candidate_dict[key] += 1
