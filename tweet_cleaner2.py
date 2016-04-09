@@ -1,4 +1,5 @@
 import json
+import Get_bounding_boxes
 
 def tweet_cleaner2(coordinateFile, stateTweetsFile, state):
 	try:
@@ -8,12 +9,19 @@ def tweet_cleaner2(coordinateFile, stateTweetsFile, state):
 				data.append(json.loads(line))
 		data_file.close()
 		
+		bounding_box = eval('[' + Get_bounding_boxes.get_bounding_box(state) + ']')
+		
+		latmin = bounding_box[0]
+		latmax = bounding_box[1]
+		lonmin = bounding_box[2]
+		lonmax = bounding_box[3]
+		
 		with open(stateTweetsFile, 'w') as clean_data_file:
 			for s in data:
 				latitude = s["coordinates"]["coordinates"][1]
 				longitude = s["coordinates"]["coordinates"][0]
-				if latitude > 24.369 and latitude < 31:
-					if longitude > -87 and longitude < -79:
+				if latitude > latmin and latitude < latmax:
+					if longitude > lonmin and longitude < lonmax:
 						clean_data_file.write(json.dumps(s))
 						clean_data_file.write("\n")	
 	except BaseException as e:
