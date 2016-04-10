@@ -59,7 +59,7 @@ def sort(dataFile, outputFile, state):
 				candidate_dict[key] = 1
 			candidate = "clinton"
 			candidate_mention = True
-		if 'trump' in content.lower() or 'donald' in content.lower() or 'apprentice' in content.lower():
+		if 'trump' in content.lower() or ' donald' in content.lower() or 'apprentice' in content.lower():
 			key = '_'.join([state_town, 'trump'])
 			if candidate_dict.has_key(key):
 				candidate_dict[key] += 1

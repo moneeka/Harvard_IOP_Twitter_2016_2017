@@ -10,7 +10,6 @@ def tweet_cleaner2(coordinateFile, stateTweetsFile, state):
 		data_file.close()
 		
 		bounding_box = eval('[' + Get_bounding_boxes.get_bounding_box(state) + ']')
-		
 		latmin = bounding_box[0]
 		latmax = bounding_box[1]
 		lonmin = bounding_box[2]
