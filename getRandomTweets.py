@@ -29,18 +29,21 @@ def get_rand_tweets(td, cand, t_num):
 
     t_list = td[cand]
     t_total = len(t_list)
-    if t_total < t_list:
+    if t_total < t_num:
         print 'list of tweets less than the number of tweets requested; printing ', t_total
         t_num = t_total
 
-    print cand, t_total
+    print cand, t_num
     for i in range(0,t_num):
         r_ind = random.randint(0, t_total - 1)
         try:
             if isinstance(t_list[r_ind], candidate_twt.candidate_rec):
+                print 'new tweet'
                 print t_list[r_ind].get_text()
+
             else:
                 js = json.loads(t_list[r_ind])
+                print 'new tweet'
                 print js['text']
         except:
             pass

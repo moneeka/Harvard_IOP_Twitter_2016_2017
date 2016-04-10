@@ -1,0 +1,145 @@
+{
+    "type": "FeatureCollection", 
+    "features": [
+        {
+            "geometry": {
+                "type": "Point", 
+                "coordinates": [
+                    -74.00118993, 
+                    40.75759585
+                ]
+            }, 
+            "type": "Feature", 
+            "properties": {
+                "text": "Ewwww! A life size #Slimer from the original #Ghostbusters! #ToyFair2016 #NewYork @ Javits Center https://t.co/szBsHy3CMV", 
+                "created_at": "Sat Feb 20 16:31:36 +0000 2016"
+            }
+        }, 
+        {
+            "geometry": {
+                "type": "Point", 
+                "coordinates": [
+                    -73.9996798, 
+                    40.73048387
+                ]
+            }, 
+            "type": "Feature", 
+            "properties": {
+                "text": "#blackportraitures #ARTH316 @wellesley in the house! @wellesleymag\u2026 https://t.co/VQ7Y2JTMAp", 
+                "created_at": "Sat Feb 20 16:31:36 +0000 2016"
+            }
+        }, 
+        {
+            "geometry": {
+                "type": "Point", 
+                "coordinates": [
+                    -73.9726679, 
+                    40.7569775
+                ]
+            }, 
+            "type": "Feature", 
+            "properties": {
+                "text": "See our latest #job and click to apply: Shift Supervisor (US) - https://t.co/hcsXLLUTQ8 #Hospitality #Veterans #Hiring #CareerArc", 
+                "created_at": "Sat Feb 20 16:31:51 +0000 2016"
+            }
+        }, 
+        {
+            "geometry": {
+                "type": "Point", 
+                "coordinates": [
+                    -74.17108, 
+                    40.91646
+                ]
+            }, 
+            "type": "Feature", 
+            "properties": {
+                "text": "cloudy -&gt; fair\ntemperature up 37\u00b0F -&gt; 52\u00b0F\nhumidity down 76% -&gt; 45%\nwind 3mph -&gt; 8mph\npressure 29.94in falling", 
+                "created_at": "Sat Feb 20 16:31:53 +0000 2016"
+            }
+        }, 
+        {
+            "geometry": {
+                "type": "Point", 
+                "coordinates": [
+                    -73.961897, 
+                    40.803813
+                ]
+            }, 
+            "type": "Feature", 
+            "properties": {
+                "text": "I'm at Cathedral Church of St. John the Divine in New York, NY https://t.co/TrQt6l0AXF https://t.co/z3Gx70uUH3", 
+                "created_at": "Sat Feb 20 16:31:56 +0000 2016"
+            }
+        }, 
+        {
+            "geometry": {
+                "type": "Point", 
+                "coordinates": [
+                    -73.98545, 
+                    40.74116
+                ]
+            }, 
+            "type": "Feature", 
+            "properties": {
+                "text": "Wonderful night with the gals celebrating bday, art, healthy food. @\u2026 https://t.co/EyvBpBE3by", 
+                "created_at": "Sat Feb 20 16:31:57 +0000 2016"
+            }
+        }, 
+        {
+            "geometry": {
+                "type": "Point", 
+                "coordinates": [
+                    -74.73603129, 
+                    39.55087925
+                ]
+            }, 
+            "type": "Feature", 
+            "properties": {
+                "text": "I'm at Frank S. Farley Service Plaza in Hammonton, NJ https://t.co/SVlCTDTSKJ", 
+                "created_at": "Sat Feb 20 16:31:59 +0000 2016"
+            }
+        }, 
+        {
+            "geometry": {
+                "type": "Point", 
+                "coordinates": [
+                    -73.96323917, 
+                    40.6745586
+                ]
+            }, 
+            "type": "Feature", 
+            "properties": {
+                "text": "I'm at Tom's Restaurant in Brooklyn, NY https://t.co/aOLl5w5Azs", 
+                "created_at": "Sat Feb 20 16:32:02 +0000 2016"
+            }
+        }, 
+        {
+            "geometry": {
+                "type": "Point", 
+                "coordinates": [
+                    -73.9991637, 
+                    40.7536854
+                ]
+            }, 
+            "type": "Feature", 
+            "properties": {
+                "text": "#IT in #NewYork, NY: Network Engineer--Dynamic Midtown Firm--Heavy Cisco/Security at Es Vee EDP Placement Agency https://t.co/wbhkugGvrc", 
+                "created_at": "Sat Feb 20 16:32:03 +0000 2016"
+            }
+        }, 
+        {
+            "geometry": {
+                "type": "Point", 
+                "coordinates": [
+                    -73.98439457, 
+                    40.75040598
+                ]
+            }, 
+            "type": "Feature", 
+            "properties": {
+                "text": "Watch @foodnetwork's Snapchat Discover page right now and learn how to make your favorite BEC\u2026 https://t.co/XdFsSnUNfw", 
+                "created_at": "Sat Feb 20 16:32:05 +0000 2016"
+            }
+        }
+    ]
+}
