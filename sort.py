@@ -13,7 +13,7 @@ class Tweet:
 def sort(dataFile, outputFile, state):
 
 		#testbatch3.json will be replaced by whatever file we are using
-
+	total_count = 0
 	candidate_dict = {}
 	data = []
 	output_array = []
@@ -42,45 +42,56 @@ def sort(dataFile, outputFile, state):
 		state_town = state
 		candidate = " "
 		candidate_mention = False
+		
+		sanders_key = '_'.join([state_town, 'sanders'])
+		clinton_key = '_'.join([state_town, 'clinton'])
+		trump_key = '_'.join([state_town, 'trump'])
+		cruz_key = '_'.join([state_town, 'cruz'])
+
 
 		if 'sanders' in content.lower() or 'bernie' in content.lower() or 'bern' in content.lower():
-			key = '_'.join([state_town, 'sanders'])
-			if candidate_dict.has_key(key):
-				candidate_dict[key] += 1
+			if candidate_dict.has_key(sanders_key):
+				candidate_dict[sanders_key] += 1
 			else:
-				candidate_dict[key] = 1
+				candidate_dict[sanders_key] = 1
 			candidate = "sanders"
+			total_count = total_count + 1
 			candidate_mention = True
 		if 'clinton' in content.lower() or 'hillary' in content.lower():
-			key = '_'.join([state_town, 'clinton'])
-			if candidate_dict.has_key(key):
-				candidate_dict[key] += 1
+			if candidate_dict.has_key(clinton_key):
+				candidate_dict[clinton_key] += 1
 			else:
-				candidate_dict[key] = 1
+				candidate_dict[clinton_key] = 1
 			candidate = "clinton"
+			total_count = total_count + 1
 			candidate_mention = True
 		if 'trump' in content.lower() or ' donald' in content.lower() or 'apprentice' in content.lower():
-			key = '_'.join([state_town, 'trump'])
-			if candidate_dict.has_key(key):
-				candidate_dict[key] += 1
+			if candidate_dict.has_key(trump_key):
+				candidate_dict[trump_key] += 1
 			else:
-				candidate_dict[key] = 1
+				candidate_dict[trump_key] = 1
 			candidate = "trump"
+			total_count = total_count + 1
 			candidate_mention = True
 		if 'cruz' in content.lower() or ' ted' in content.lower():
-			key = '_'.join([state_town, 'cruz'])
-			if candidate_dict.has_key(key):
-				candidate_dict[key] += 1
+			if candidate_dict.has_key(cruz_key):
+				candidate_dict[cruz_key] += 1
 			else:
-				candidate_dict[key] = 1
+				candidate_dict[cruz_key] = 1
 			candidate = "cruz"
+			total_count = total_count + 1
 			candidate_mention = True
+			
 		if candidate_mention == True:
 			tweet = Tweet(candidate, state_town, content, coordinates, created_at)
 			output_array.append(json.dumps(tweet.__dict__))
-
+			
 	print candidate_dict
-
+	candidate_dict[sanders_key] = (candidate_dict[sanders_key]/float(total_count))*100
+	candidate_dict[clinton_key] = (candidate_dict[clinton_key]/float(total_count))*100
+	candidate_dict[cruz_key] = (candidate_dict[cruz_key]/float(total_count))*100
+	candidate_dict[trump_key] = (candidate_dict[trump_key]/float(total_count))*100
+	print candidate_dict
 
 	# put dictionary in a json file
 	with open(outputFile, 'w') as dictionary:
