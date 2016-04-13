@@ -10,7 +10,7 @@ class Tweet:
 		self.create_at = created_at
 
 
-def sort(dataFile, outputFile, state):
+def sort(dataFile, outputFile, state, isCoord):
 
 		#testbatch3.json will be replaced by whatever file we are using
 	total_count = 0
@@ -23,7 +23,20 @@ def sort(dataFile, outputFile, state):
 
 	for item in data:
 		content = item['text']
-		coordinates = item['coordinates']['coordinates']
+		if isCoord:
+			coordinates = item['coordinates']['coordinates']
+		else:
+			lat1 = item["place"]["bounding_box"]["coordinates"][0][0][0]
+			lat2 = item["place"]["bounding_box"]["coordinates"][0][1][0]
+			lat3 = item["place"]["bounding_box"]["coordinates"][0][2][0]
+			lat4 = item["place"]["bounding_box"]["coordinates"][0][3][0]
+			lon1 = item["place"]["bounding_box"]["coordinates"][0][0][1]
+			lon2 = item["place"]["bounding_box"]["coordinates"][0][1][1]
+			lon3 = item["place"]["bounding_box"]["coordinates"][0][2][1]
+			lon4 = item["place"]["bounding_box"]["coordinates"][0][2][1]
+			latitude = (lat1 + lat2 + lat3 + lat4)/4
+			longitude = (lon1 + lon2 + lon3 + lon4)/4
+			coordinates = [latitude, longitude]
 		created_at = item['created_at']
 		#retrieving the index of the first comma in the address (ex: 11111 Euclid Ave, Cleveland, OH)
 		'''index = address.index(',')
