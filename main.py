@@ -18,14 +18,14 @@ def main(argv):
 	
 	tweet_divider.tweet_divider(dataFile, coordinateFile, partitionFile)
 	#eliminate non-political tweets
-	tweet_cleaner2.tweet_cleaner2(coordinateFile, stateFile, state, True)
-	print "coordinates"
-	sort.sort(coordinateFile, dictionaryFile, state, True)
+	
 	print "place"
 	tweet_cleaner2.tweet_cleaner2(partitionFile, stateFile, state, False)
 	sort.sort(partitionFile, dictionaryFile, state, False)
-
-
+	
+	print "coordinates"
+	tweet_cleaner2.tweet_cleaner2(coordinateFile, stateFile, state, True)
+	return sort.sort(coordinateFile, dictionaryFile, state, True)
 
 if __name__ == "__main__":
    main(sys.argv[1:])
