@@ -18,7 +18,7 @@ def main(argv):
 	tweet_divider.tweet_divider(dataFile, coordinateFile, 'placePartion.json')
 	#eliminate non-political tweets
 	tweet_cleaner2.tweet_cleaner2(coordinateFile, stateFile, state)
-	sort.sort(coordinateFile, dictionaryFile, state)
+	return sort.sort(coordinateFile, dictionaryFile, state)
 
 
 if __name__ == "__main__":

@@ -42,7 +42,7 @@ def sort(dataFile, outputFile, state):
 		state_town = state
 		candidate = " "
 		candidate_mention = False
-
+	
 		if 'sanders' in content.lower() or 'bernie' in content.lower() or 'bern' in content.lower():
 			key = '_'.join([state_town, 'sanders'])
 			if candidate_dict.has_key(key):
@@ -79,7 +79,7 @@ def sort(dataFile, outputFile, state):
 			tweet = Tweet(candidate, state_town, content, coordinates, created_at)
 			output_array.append(json.dumps(tweet.__dict__))
 
-	print candidate_dict
+	#print candidate_dict
 
 
 	# put dictionary in a json file
@@ -87,3 +87,5 @@ def sort(dataFile, outputFile, state):
 		for item in output_array:
 			dictionary.write("%s\n" % item)
 		dictionary.close()
+
+	return candidate_dict
