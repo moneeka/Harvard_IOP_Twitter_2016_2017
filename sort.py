@@ -8,13 +8,13 @@ class Tweet:
 		self.content = content
 		self.coordinates = coordinates
 		self.create_at = created_at
-		
+
 
 def sort(dataFile, outputFile, state):
 
 		#testbatch3.json will be replaced by whatever file we are using
 	total_count = 0
-	candidate_dict = {}
+	candidate_dict = {state+"_sanders":0, state+"_clinton": 0, state+"_trump": 0, state+"_cruz": 0}
 	data = []
 	output_array = []
 	with open(dataFile) as f:
@@ -42,12 +42,11 @@ def sort(dataFile, outputFile, state):
 		state_town = state
 		candidate = " "
 		candidate_mention = False
-		
+
 		sanders_key = '_'.join([state_town, 'sanders'])
 		clinton_key = '_'.join([state_town, 'clinton'])
 		trump_key = '_'.join([state_town, 'trump'])
 		cruz_key = '_'.join([state_town, 'cruz'])
-
 
 		if 'sanders' in content.lower() or 'bernie' in content.lower() or 'bern' in content.lower():
 			if candidate_dict.has_key(sanders_key):
@@ -81,11 +80,11 @@ def sort(dataFile, outputFile, state):
 			candidate = "cruz"
 			total_count = total_count + 1
 			candidate_mention = True
-			
+
 		if candidate_mention == True:
 			tweet = Tweet(candidate, state_town, content, coordinates, created_at)
 			output_array.append(json.dumps(tweet.__dict__))
-			
+
 	print candidate_dict
 	candidate_dict[sanders_key] = (candidate_dict[sanders_key]/float(total_count))*100
 	candidate_dict[clinton_key] = (candidate_dict[clinton_key]/float(total_count))*100
@@ -98,3 +97,5 @@ def sort(dataFile, outputFile, state):
 		for item in output_array:
 			dictionary.write("%s\n" % item)
 		dictionary.close()
+
+	return candidate_dict
