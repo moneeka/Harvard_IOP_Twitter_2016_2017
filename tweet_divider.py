@@ -20,20 +20,20 @@ def tweet_divider(dataFile, coordinateFile, placeFile):
 
 				for s in data:
 					# Checks to see if the coordinates field is filled in
-					if s["coordinates"] != None:
 						# Writes the json version of tweet into the appropriate file
-						contains_politics = False
-						content = s['text']
-						for word in political_words:
-							if word in content.lower():
-								contains_politics = True
-						if contains_politics:
+					contains_politics = False
+					content = s['text']
+					for word in political_words:
+						if word in content.lower():
+							contains_politics = True
+					if contains_politics:
+						if s["coordinates"] != None:
 							partition1_file.write(json.dumps(s))
 							partition1_file.write("\n")
-					else:
-						# Writes the json version of tweet that just has the place into the appropriate file
-						partition2_file.write(json.dumps(s))
-						partition2_file.write("\n")
+						else:
+							partition2_file.write(json.dumps(s))
+							partition2_file.write("\n")
+					
 			partition2_file.close()
 		partition1_file.close()
 
