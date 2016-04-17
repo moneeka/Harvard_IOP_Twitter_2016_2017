@@ -37,7 +37,7 @@ with open('rawTweetPercentages', 'w') as tweet_percentages:
     for key, value in mydict.iteritems(): 
         if key == 'Ted' or key == 'Cruz':
             if 'Cruz' in combinedDict:
-                combinedDict['Cruz'] += len(value)
+                combinedDict['Cruz'] += len(value) 
                 total_tweets += len(value)
             else:
                 combinedDict['Cruz'] = len(value)
@@ -65,7 +65,7 @@ with open('rawTweetPercentages', 'w') as tweet_percentages:
         tweet_percentages.write(key+': '+str(value)+' Tweet Percentage: '+str((float(value)/total_tweets)*100))
         tweet_percentages.write("\n")
 
-    tweet_percentages.write('Total Tweets: ' + str(total_tweets))
+    tweet_percentages.write('Total Tweetsm: ' + str(total_tweets))
     
 
 
