@@ -15,7 +15,7 @@ def get_bounding_box(state):
 	for d in data: 
 		stateBound = d["display_name"]
 		#print state
-		if (stateBound == state):
+		if (stateBound.lower() == state.lower()):
 			bb_boundary = d["boundingbox"]
 			return bb_boundary
 	return [0, 0, 0, 0]
