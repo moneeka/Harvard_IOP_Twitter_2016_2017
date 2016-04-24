@@ -63,8 +63,8 @@ def sort(dataFile, outputFile, state, isCoord):
 		clinton_key = '_'.join([state_town, 'clinton'])
 		trump_key = '_'.join([state_town, 'trump'])
 		cruz_key = '_'.join([state_town, 'cruz'])
-		rubio_key = '-',join([state_town] 'rubio'])
-		kasich_key = '-',join([state_town] 'kasich'])
+		rubio_key = '-'.join([state_town, 'rubio'])
+		kasich_key = '-'.join([state_town, 'kasich'])
 
 		if 'sanders' in content.lower() or 'bernie' in content.lower() or 'bern' in content.lower():
 			if candidate_dict.has_key(sanders_key):
