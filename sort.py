@@ -14,7 +14,10 @@ def sort(dataFile, outputFile, state, isCoord):
 
 		#testbatch3.json will be replaced by whatever file we are using
 	total_count = 0
-	candidate_dict = {state+"_sanders":0, state+"_clinton": 0, state+"_trump": 0, state+"_cruz": 0}
+	total_dem_count = 0
+	total_repub_count = 0
+
+	candidate_dict = {state+"_sanders":0, state+"_clinton": 0, state+"_trump": 0, state+"_cruz": 0, state+"_rubio": 0, state+"_kasich": 0}
 	data = []
 	output_array = []
 	with open(dataFile) as f:
@@ -60,6 +63,8 @@ def sort(dataFile, outputFile, state, isCoord):
 		clinton_key = '_'.join([state_town, 'clinton'])
 		trump_key = '_'.join([state_town, 'trump'])
 		cruz_key = '_'.join([state_town, 'cruz'])
+		rubio_key = '-',join([state_town] 'rubio'])
+		kasich_key = '-',join([state_town] 'kasich'])
 
 		if 'sanders' in content.lower() or 'bernie' in content.lower() or 'bern' in content.lower():
 			if candidate_dict.has_key(sanders_key):
@@ -68,6 +73,7 @@ def sort(dataFile, outputFile, state, isCoord):
 				candidate_dict[sanders_key] = 1
 			candidate = "sanders"
 			total_count = total_count + 1
+			total_dem_count += 1
 			candidate_mention = True
 		if 'clinton' in content.lower() or 'hillary' in content.lower():
 			if candidate_dict.has_key(clinton_key):
@@ -76,22 +82,43 @@ def sort(dataFile, outputFile, state, isCoord):
 				candidate_dict[clinton_key] = 1
 			candidate = "clinton"
 			total_count = total_count + 1
+			total_dem_count += 1
 			candidate_mention = True
-		if 'trump' in content.lower() or ' donald' in content.lower() or 'apprentice' in content.lower():
+		if 'trump' in content.lower() or 'donald' in content.lower() or 'apprentice' in content.lower():
 			if candidate_dict.has_key(trump_key):
 				candidate_dict[trump_key] += 1
 			else:
 				candidate_dict[trump_key] = 1
 			candidate = "trump"
 			total_count = total_count + 1
+			total_repub_count += 1
 			candidate_mention = True
-		if 'cruz' in content.lower() or ' ted' in content.lower():
+		if 'cruz' in content.lower() or 'ted' in content.lower():
 			if candidate_dict.has_key(cruz_key):
 				candidate_dict[cruz_key] += 1
 			else:
 				candidate_dict[cruz_key] = 1
 			candidate = "cruz"
 			total_count = total_count + 1
+			total_repub_count += 1
+			candidate_mention = True
+		if 'rubio' in content.lower() or 'marco' in content.lower():
+			if candidate_dict.has_key(rubio_key):
+				candidate_dict[rubio_key] += 1
+			else:
+				candidate_dict[rubio_key] = 1
+			candidate = "rubio"
+			total_count = total_count + 1
+			total_repub_count += 1
+			candidate_mention = True
+		if 'kasich' in content.lower() or 'john' in content.lower():
+			if candidate_dict.has_key(kasich_key):
+				candidate_dict[kasich_key] += 1
+			else:
+				candidate_dict[kasich_key] = 1
+			candidate = "kasich"
+			total_count = total_count + 1
+			total_repub_count += 1
 			candidate_mention = True
 
 		if candidate_mention == True:
@@ -99,10 +126,12 @@ def sort(dataFile, outputFile, state, isCoord):
 			output_array.append(json.dumps(tweet.__dict__))
 
 	print candidate_dict
-	candidate_dict[sanders_key] = (candidate_dict[sanders_key]/float(total_count))*100
-	candidate_dict[clinton_key] = (candidate_dict[clinton_key]/float(total_count))*100
-	candidate_dict[cruz_key] = (candidate_dict[cruz_key]/float(total_count))*100
-	candidate_dict[trump_key] = (candidate_dict[trump_key]/float(total_count))*100
+	candidate_dict[sanders_key] = (candidate_dict[sanders_key]/float(total_dem_count))*100
+	candidate_dict[clinton_key] = (candidate_dict[clinton_key]/float(total_dem_count))*100
+	candidate_dict[cruz_key] = (candidate_dict[cruz_key]/float(total_repub_count))*100
+	candidate_dict[trump_key] = (candidate_dict[trump_key]/float(total_repub_count))*100
+	candidate_dict[rubio_key] = (candidate_dict[rubio_key]/float(total_repub_count))*100
+	candidate_dict[kasich_key] = (candidate_dict[kasich_key]/float(total_repub_count))*100
 	print candidate_dict
 
 	# put dictionary in a json file
