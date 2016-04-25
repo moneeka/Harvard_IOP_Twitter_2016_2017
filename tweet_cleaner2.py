@@ -1,7 +1,7 @@
 import json
 import Get_bounding_boxes
 
-def tweet_cleaner2(file, stateTweetsFile, state, isCoord):
+def tweet_cleaner2(file, stateTweetsFile, state):
 	try:
 		data = []
 		with open(file, 'r') as data_file:
@@ -10,14 +10,14 @@ def tweet_cleaner2(file, stateTweetsFile, state, isCoord):
 		data_file.close()
 		
 		bounding_box = eval('[' + Get_bounding_boxes.get_bounding_box(state) + ']')
-		latmin = bounding_box[0]
-		latmax = bounding_box[1]
-		lonmin = bounding_box[2]
-		lonmax = bounding_box[3]
+		lonmin = bounding_box[0]
+		lonmax = bounding_box[1]
+		latmin = bounding_box[2]
+		latmax = bounding_box[3]
 		
 		with open(stateTweetsFile, 'w') as clean_data_file:
 			for s in data:
-				if(isCoord == True):
+				if s["coordinates"] != None:
 					latitude = s["coordinates"]["coordinates"][1]
 					longitude = s["coordinates"]["coordinates"][0]
 				else:

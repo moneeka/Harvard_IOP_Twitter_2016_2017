@@ -12,20 +12,14 @@ def main(argv):
 	date = dataFile[dateIndex:]
 
 	stateFile = "tweets_" + state + "_" + date
-	coordinateFile = "coordinatePartition_" + state + "_" + date
+	politicalFile = "politicalFile_" + state + "_" + date
 	dictionaryFile = "dictionary_" + state + "_" + date
-	partitionFile = "placePartition_" + state + "_" + date
 	
-	tweet_divider.tweet_divider(dataFile, coordinateFile, partitionFile)
+	tweet_divider.tweet_divider(dataFile, politicalFile)
 	#eliminate non-political tweets
 	
-	print "place"
-	tweet_cleaner2.tweet_cleaner2(partitionFile, stateFile, state, False)
-	sort.sort(partitionFile, dictionaryFile, state, False)
-	
-	print "coordinates"
-	tweet_cleaner2.tweet_cleaner2(coordinateFile, stateFile, state, True)
-	return sort.sort(coordinateFile, dictionaryFile, state, True)
+	tweet_cleaner2.tweet_cleaner2(politicalFile, stateFile, state)
+	sort.sort(stateFile, dictionaryFile, state)
 
 if __name__ == "__main__":
    main(sys.argv[1:])
