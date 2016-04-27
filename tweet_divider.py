@@ -1,6 +1,6 @@
 import json
 
-def tweet_divider(dataFile, coordinateFile, placeFile):
+def tweet_divider(dataFile, politicalFile):
 	try:
 		# Creates the list that will contain the objects contained in the json file 
 		data = []
@@ -14,27 +14,17 @@ def tweet_divider(dataFile, coordinateFile, placeFile):
 		data_file.close()
 
 		# Opens up the empty file that will store the tweets with actual coordinates
-		with open(coordinateFile, 'w') as partition1_file:
-			# Opens up the empty file that will store the tweets with place and null coordinates
-			with open(placeFile, 'w') as partition2_file:
-
-				for s in data:
-					# Checks to see if the coordinates field is filled in
-						# Writes the json version of tweet into the appropriate file
-					contains_politics = False
-					content = s['text']
-					for word in political_words:
-						if word in content.lower():
-							contains_politics = True
-					if contains_politics:
-						if s["coordinates"] != None:
-							partition1_file.write(json.dumps(s))
-							partition1_file.write("\n")
-						else:
-							partition2_file.write(json.dumps(s))
-							partition2_file.write("\n")
-					
-			partition2_file.close()
+		with open(politicalFile, 'w') as partition1_file:
+		# Opens up the empty file that will store the tweets with place and null coordinates
+			for s in data:
+				# Checks to see if the coordinates field is filled in
+					# Writes the json version of tweet into the appropriate file
+				contains_politics = False
+				content = s['text']
+				for word in political_words:
+					if word in content.lower():
+						partition1_file.write(json.dumps(s))
+						partition1_file.write("\n")
 		partition1_file.close()
 
 	except BaseException as e:

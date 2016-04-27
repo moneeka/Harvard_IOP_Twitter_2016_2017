@@ -10,7 +10,7 @@ class Tweet:
 		self.create_at = created_at
 
 
-def sort(dataFile, outputFile, state, isCoord):
+def sort(dataFile, outputFile, state):
 
 		#testbatch3.json will be replaced by whatever file we are using
 	total_count = 0
@@ -26,7 +26,7 @@ def sort(dataFile, outputFile, state, isCoord):
 
 	for item in data:
 		content = item['text']
-		if isCoord:
+		if item["coordinates"] != None:
 			coordinates = item['coordinates']['coordinates']
 		else:
 			lat1 = item["place"]["bounding_box"]["coordinates"][0][0][0]
