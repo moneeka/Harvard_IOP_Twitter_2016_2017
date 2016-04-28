@@ -19,7 +19,7 @@ def main(argv):
 	#eliminate non-political tweets
 	
 	tweet_cleaner2.tweet_cleaner2(politicalFile, stateFile, state)
-	sort.sort(stateFile, dictionaryFile, state)
+	return sort.sort(stateFile, dictionaryFile, state)
 
 if __name__ == "__main__":
    main(sys.argv[1:])
