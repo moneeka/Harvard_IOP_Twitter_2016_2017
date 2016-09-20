@@ -1,0 +1,132 @@
+body {
+  text-align: center;
+  font-family: 'Raleway', sans-serif;
+}
+
+p {
+  font-size: 18px;
+}
+
+h1 {
+  text-decoration: underline;
+}
+
+.home {
+  max-width: 560px;
+}
+
+.home h4 {
+  line-height: 150%;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.left {
+  text-align: center;
+  line-height: 150%;
+}
+
+.leftblock {
+  max-width: 800px;
+  display: inline-block;
+}
+
+/*navbar*/
+
+.navbar {
+  font-family: 'Raleway', sans-serif;
+  font-size: 18px;
+}
+
+/*The grid*/
+
+.col-md-4 {
+  text-align: center;
+  margin-bottom: 5%;
+}
+
+.row h2 {
+  font-family:'Bitter', serif;
+  font-size: 27px;
+}
+
+.row {
+  margin-top: 2%;
+}
+
+a:visited {
+  text-decoration: none;
+}
+
+.img {
+  max-width: 480px;
+}
+
+.map {
+  max-width: 320px;
+  border-radius: 10px;
+}
+
+/*Buttons*/
+
+.buttons {
+  text-align: center;
+}
+
+.btn {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 6px 18px;
+  font-weight: bold;
+  margin-top: 2%;
+}
+
+#gop {
+  background-color: #FC0000;
+}
+
+#dem {
+  background-color: #00C2FC;
+}
+
+/*D3*/
+
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+
+/*.x.axis path {*/
+/*display: none;*/
+/*}*/
+
+.line {
+  fill: none;
+  stroke: steelblue;
+  stroke-width: 2px;
+}
+
+.legend {
+  font-size: 20px;
+  font-weight: bold;
+  text-anchor: middle;
+}
+
+/* SVG CSS */
+.svg_class {
+  text-align: center;
+  display: block;
+  margin: auto;
+}
+
+
+
+#footer {
+  text-align: center;
+  margin-top: 10px;
+}
+

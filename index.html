@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Twitter Predicts 2016</title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="description" content="Predicting the winners of the 2016 presidential primaries using Twitter data.">
+
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- JS files for Bootstrap -->
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/main.css">
+    <link href='http://fonts.googleapis.com/css?family=Arvo:400,700|Bitter:400,700|Slabo+27px' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Nunito:400,300,700' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Raleway:400,600,700,800,900' rel='stylesheet' type='text/css'>
+
+    <!-- Favicons -->
+    <link rel="shortcut icon" href="img/favicon.ico">
+  	<link rel="icon" sizes="16x16 32x32 64x64" href="img/favicon.ico">
+  	<link rel="icon" type="image/png" sizes="196x196" href="img/favicon-196.png">
+  	<link rel="icon" type="image/png" sizes="160x160" href="img/favicon-160.png">
+  	<link rel="icon" type="image/png" sizes="96x96" href="img/favicon-96.png">
+  	<link rel="icon" type="image/png" sizes="64x64" href="img/favicon-64.png">
+  	<link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32.png">
+  	<link rel="icon" type="image/png" sizes="16x16" href="img/favicon-16.png">
+  	<link rel="apple-touch-icon" sizes="152x152" href="img/favicon-152.png">
+  	<link rel="apple-touch-icon" sizes="144x144" href="img/favicon-144.png">
+  	<link rel="apple-touch-icon" sizes="120x120" href="img/favicon-120.png">
+  	<link rel="apple-touch-icon" sizes="114x114" href="img/favicon-114.png">
+  	<link rel="apple-touch-icon" sizes="76x76" href="img/favicon-76.png">
+  	<link rel="apple-touch-icon" sizes="72x72" href="img/favicon-72.png">
+  	<link rel="apple-touch-icon" href="img/favicon-57.png">
+  	<meta name="msapplication-TileColor" content="#FFFFFF">
+  	<meta name="msapplication-TileImage" content="img/favicon-144.png">
+  	<meta name="msapplication-config" content="img/browserconfig.xml">
+
+</head>
+
+<body>
+  <header>
+    <nav class="navbar navbar-inverse">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-2">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="index.html">Twitter Predicts 2016</a>
+        </div>
+
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="index.html">Home <span class="sr-only">(current)</span></a></li>
+            <li><a href="graphs.html">Mentions over time</a></li>
+            <li><a href="map.html">Mapping mentions</a></li>
+            <li><a href="contact.html">Who we are</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <!--<div class="container">-->
+    <!--<div class="jumbotron">-->
+        <!--<h1>Twitter Predicts 2016</h1>-->
+        <!--<p>Built by students at Harvard College, <strong>Twitter Predicts 2016</strong> streams Twitter data from New Hampshire and applies sentiment analysis to the data in order to figure out-->
+          <!--what people are saying about the presidential candidates. This website presents this data in a way that anybody can understand the trends in the last few weeks of the primaries in both parties' races.</p>-->
+      <!--<div class="buttons">-->
+        <!--<p><a class="btn btn-primary btn-lg">Map of political tweets</a></p>-->
+        <!--<p><a class="btn btn-primary btn-lg">Graphs of tweets over time</a>-->
+      <!--</div>-->
+    <!--</div>-->
+  <!--</div>-->
+
+  <div class="container">
+    <h1>Twitter Predicts 2016</h1>
+  </div>
+  <div class="container home">
+    <h4>Built by <a href="contact.html">students at Harvard College</a>, this project seeks to illustrate the political conversation
+    about the candidates on Twitter. View the percentage of "political tweets" (those mentioning candidates
+    by name) garnered by each candidate in each party's race. Check out the map of tweets mentioning candidates.</h4>
+  </div>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6">
+        <h2>Tweets over time</h2>
+        <div class="img-div-4">
+          <a href="graphs.html">
+            <img alt="Tweets over time" src="img/tweetsovertime.png" class="img"/>
+          </a>
+        </div>
+        <p>
+          View the number of tweets about each candidate over time in each primary state.
+        </p>
+      </div>
+     <div class="col-md-6">
+       <h2>Tweets Heat Map</h2>
+       <div class="img-div-4">
+         <a href="map.html" target="_blank">
+           <img alt="Map teaser image" src="img/map.png" class="map"/>
+         </a>
+       </div>
+       <p>
+         View tweets about the candidates mapped on each primary state.
+       </p>
+     </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <footer id="footer">
+      <hr>
+      <p>&copy; Twitter Predicts 2016</p>
+    </footer>
+  </div>
+
+</body>
+</html>
