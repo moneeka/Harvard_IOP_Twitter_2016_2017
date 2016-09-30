@@ -1,6 +1,4 @@
 #!/usr/bin/env python
-#monica makes sure she can commit
-
 import tweepy
 from tweepy import OAuthHandler
 from tweepy import Stream
