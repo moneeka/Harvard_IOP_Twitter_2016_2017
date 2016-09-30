@@ -17,7 +17,7 @@ class MyListener(StreamListener):
 
     def on_data(self, data):
         try:
-            with open('hashtag_filtered_tweets.json', 'a') as f:
+            with open('hashtag_data_files\hashtag_filtered_tweets.json', 'a') as f:
                 f.write("HINIFND")
                 f.write(data)
                 return True
