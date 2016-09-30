@@ -7,7 +7,7 @@ consumer_key = "#"
 consumer_secret = "#"
 access_token = "#"
 access_secret = "#"
-        
+
 auth = OAuthHandler(consumer_key, consumer_secret)
 auth.set_access_token(access_token, access_secret)
 
@@ -29,5 +29,14 @@ class MyListener(StreamListener):
         print(status)
         return True
 
+data = ''
+with open('political_hashtags_for_twitter.txt', 'r') as data_file: 
+
+    for line in data_file:
+        data += ', ' + line
+data_file.close()
+
+
+
 twitter_stream = Stream(auth, MyListener())
-twitter_stream.filter(track=['#hillary, #donald'])
+twitter_stream.filter(track=[data])
