@@ -4,7 +4,6 @@ import json
 f = open('nyt.txt', 'w')
 articles = []
 
-articles=[];
 d = feedparser.parse('http://rss.nytimes.com/services/xml/rss/nyt/HomePage.xml')
 length = len(d['entries'])
 for entry in d['entries']:
@@ -17,7 +16,6 @@ f.close()
 f2 = open('wsj.txt', 'w')
 articles = []
 
-articles=[];
 d = feedparser.parse('http://www.wsj.com/xml/rss/3_7085.xml')
 length = len(d['entries'])
 for entry in d['entries']:
@@ -29,7 +27,6 @@ f2.close()
 f3 = open('breitbart.txt', 'w')
 articles = []
 
-articles=[];
 d = feedparser.parse('http://feeds.feedburner.com/breitbart?format=xml')
 length = len(d['entries'])
 for entry in d['entries']:
@@ -43,7 +40,6 @@ f3.close()
 f4 = open('fox.txt', 'w')
 articles = []
 
-articles = [];
 d = feedparser.parse('http://feeds.foxnews.com/foxnews/latest?format=xml')
 length = len(d['entries'])
 for entry in d['entries']:
@@ -57,7 +53,6 @@ f4.close()
 f5 = open('cnn.txt', 'w')
 articles = []
 
-articles = [];
 d = feedparser.parse('http://rss.cnn.com/rss/cnn_topstories.rss')
 length = len(d['entries'])
 for entry in d['entries']:
