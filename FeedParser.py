@@ -1,70 +1,41 @@
 import feedparser
 import json
+import time
 
-f = open('nyt.txt', 'w')
+# The sites we want scraped, along with the base name of the file in which the scraping is saved
+site_list = [
+    ['http://rss.nytimes.com/services/xml/rss/nyt/HomePage.xml', 'nyt'],
+    ['http://www.wsj.com/xml/rss/3_7085.xml', 'wsj'],
+    ['http://feeds.feedburner.com/breitbart?format=xml', 'breitbart'],
+    ['http://feeds.foxnews.com/foxnews/latest?format=xml', 'fox'],
+    ['http://rss.cnn.com/rss/cnn_topstories.rss', 'cnn']
+]
 
-articles=[];
-d = feedparser.parse('http://rss.nytimes.com/services/xml/rss/nyt/HomePage.xml')
-length = len(d['entries'])
-for entry in d['entries']:
-	title = entry['title'];
-	summary = (entry['summary']).encode('ascii', 'ignore')
-	article = {'Title': title, 'Summary': summary, 'PubDate': entry.published}
-	articles.append(article)
-json.dump(articles, f)
-f.close()
+# We will set this up to run once every 12 hours
+sleep_duration = 60 * 60 * 12
 
+def scrape_site(site_url, out_fname):
+    """
+    Open a file with a name of the base name passed in and a timestamp, in the sub-directory feed_data. Scrape
+    the site, write the file in json format.
+    :param site_url: url of the site to be scraped
+    :param out_fname: base name of the file that will contain the scraping
+    :return: None
+    """
+    out_name = '-'.join([out_fname, time.strftime('%Y%m%d-%H%M%S')])
+    f = open('feed_data/' + '.'.join([out_name, 'txt']), 'w')
+    articles = []
+    d = feedparser.parse(site_url)
+    length = len(d['entries'])
+    for entry in d['entries']:
+        title = entry['title']
+        summary = (entry['summary']).encode('ascii', 'ignore')
+        article = {'Title': title, 'Summary': summary, 'PubDate': entry.published}
+        articles.append(article)
+    json.dump(articles, f)
+    f.close()
 
-f2 = open('wsj.txt', 'w')
-
-articles=[];
-d = feedparser.parse('http://www.wsj.com/xml/rss/3_7085.xml')
-length = len(d['entries'])
-for entry in d['entries']:
-	title = entry['title'];	
-	summary = (entry['summary']).encode('ascii', 'ignore')
-	article = {'Title': title, 'Summary': summary, 'PubDate': entry.published}
-	articles.append(article)
-json.dump(articles, f2)
-f2.close()
-
-f3 = open('breitbart.txt', 'w')
-
-articles=[];
-d = feedparser.parse('http://feeds.feedburner.com/breitbart?format=xml')
-length = len(d['entries'])
-for entry in d['entries']:
-	title = (entry['title']).encode('ascii', 'ignore')
-	summary = (entry['summary']).encode('ascii', 'ignore')
-	article = {'Title': title, 'Summary': summary, 'PubDate': entry.published}
-	articles.append(article)
-json.dump(articles, f3)
-f3.close()
-
-
-f4 = open('fox.txt', 'w')
-
-articles = [];
-d = feedparser.parse('http://feeds.foxnews.com/foxnews/latest?format=xml')
-length = len(d['entries'])
-for entry in d['entries']:
-	title = (entry['title']).encode('ascii', 'ignore')
-	summary = (entry['summary']).encode('ascii', 'ignore')
-	article = {'Title': title, 'Summary': summary, 'PubDate': entry.published}
-	articles.append(article)
-json.dump(articles, f4)
-f4.close()
-
-
-f5 = open('cnn.txt', 'w')
-
-articles = [];
-d = feedparser.parse('http://rss.cnn.com/rss/cnn_topstories.rss')
-length = len(d['entries'])
-for entry in d['entries']:
-	title = (entry['title']).encode('ascii', 'ignore')
-	summary = (entry['summary']).encode('ascii', 'ignore')
-	article = {'Title': title, 'Summary': summary, 'PubDate': entry.published}
-	articles.append(article)
-json.dump(articles, f5)
-f5.close()
+while (True):
+    for i in site_list:
+        scrape_site(i[0], i[1])
+    time.sleep(sleep_duration)
