@@ -5,7 +5,7 @@ from urllib2 import urlopen
 import json
 import time
 
-tweet_files = []
+tweet_files = [hashtag_filtered_tweets.json]
 
 client = textapi.Client("17fd47a3", "e04bf98926505adfbb106de51490b9ce")
 
