@@ -5,7 +5,8 @@ from urllib2 import urlopen
 import json
 import time
 
-names = ['cnn-20161019-054854.txt']
+names = ['wsj-20161015-105619.txt']
+neg_words = ['kill', 'killed', 'killing', 'bomb', 'bombing', 'threat', 'threatening', 'crash', 'dead', 'death', 'die'];
 #note: only 1 newsource is included here, as the free API does not allow for the number of calls made by all sources
 #other sources: ['fox.txt', 'breitbart.txt', 'cnn.txt', 'wsj.txt']
 
@@ -28,20 +29,23 @@ def sentize(publication_name):
     for article in data:
             title = article['Title'].encode('ascii', 'ignore')
             print title
-            sentiment = client.Sentiment({'text': title})
-            x=x+1
-            piece = {'Title': article['Title'], 'PubDate': article['PubDate'], 'Sentiment': sentiment['polarity'], 'Confidence': sentiment['polarity_confidence']}
+            sentiment= client.Sentiment({'text': title})
+            sent = sentiment['polarity']
+            if any (word in article['Title'].lower() for word in neg_words):
+                sent = 'negative'
+            piece = {'Title': article['Title'], 'PubDate': article['PubDate'], 'Sentiment': sent, 'Confidence': sentiment['polarity_confidence']}
+            print piece['Sentiment']
             if any (word in article['Title'].lower() for word in political_words):
-                if(sentiment['polarity'] == 'positive'):
+                if(piece['Sentiment'] == 'positive'):
                     sent_political_pos.append(piece)
-                elif(sentiment['polarity'] == 'negative'):
+                elif(piece['Sentiment'] == 'negative'):
                     sent_political_neg.append(piece)
                 else:
                     sent_political_neutral.append(piece)
             else:
-                if(sentiment['polarity'] == 'positive'):
+                if(piece['Sentiment'] == 'positive'):
                     sent_nonpolitical_pos.append(piece)
-                elif(sentiment['polarity'] == 'negative'):
+                elif(piece['Sentiment'] == 'negative'):
                     sent_nonpolitical_neg.append(piece)
                 else:
                     sent_nonpolitical_neutral.append(piece)
