@@ -3,15 +3,16 @@
 from aylienapiclient import textapi
 from urllib2 import urlopen
 import json
+import simplejson
 import time
 
-tweet_files = [hashtag_filtered_tweets.json]
+tweet_files = ['hashtag_data_files/hashtag_filtered_tweets2016-10-30.json']
 
 client = textapi.Client("17fd47a3", "e04bf98926505adfbb106de51490b9ce")
 
 def sentize(tweets):
     with open(tweets) as inputfile:
-        data = json.load(inputfile)
+        data = simplejson.load(inputfile)
     inputfile.close()
     
     sent_political_pos = []
@@ -21,26 +22,30 @@ def sentize(tweets):
     x = 0
 
     for tweet in data:
-        content = tweet['text']
+        content = tweet['text'].encode('ascii', 'ignore')
+
+        # content = tweet['text']
         sentiment = client.Sentiment({'text': content})
         
         x=x+1
 
-        sent_tweet = {'text': tweet['text'], 'created_at': article['created_at'], 'Sentiment': sentiment['polarity'], 'Confidence': sentiment['polarity_confidence']}
+        sent_tweet = {'text': tweet['text'], 'created_at': tweet['created_at'], 'Sentiment': sentiment['polarity'], 'Confidence': sentiment['polarity_confidence']}
         
         if(sentiment['polarity'] == 'positive'):
-            sent_political_pos.append(piece)
+            sent_political_pos.append(sent_tweet)
         elif(sentiment['polarity'] == 'negative'):
-            sent_political_neg.append(piece)
+            sent_political_neg.append(sent_tweet)
         else:
-            sent_political_neutral.append(piece)
+            sent_political_neutral.append(sent_tweet)
 
         if (x == 60):
             time.sleep(60)
             x=0
 
+    filename = tweets.replace('hashtag_data_files/', '')
+    filename = filename.replace('.json','')
 
-    f = open(tweets + '_political.txt', 'w')
+    f = open(filename + '_political.txt', 'w')
     f.write("\n Positive: \n")
     json.dump(sent_political_pos, f)
     f.write("\n Negative: \n")
