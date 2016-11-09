@@ -5,12 +5,12 @@ from urllib2 import urlopen
 import json
 import time
 
-names = ['wsj-20161015-105619.txt']
+names = ['nyt-20161023-131346.txt']
 neg_words = ['kill', 'killed', 'killing', 'bomb', 'bombing', 'threat', 'threatening', 'crash', 'dead', 'death', 'die'];
 #note: only 1 newsource is included here, as the free API does not allow for the number of calls made by all sources
 #other sources: ['fox.txt', 'breitbart.txt', 'cnn.txt', 'wsj.txt']
 
-client = textapi.Client("17fd47a3", "e04bf98926505adfbb106de51490b9ce")
+client = textapi.Client("ae899f48", "c1535a8c6bd267b39581c7c53d8c10d8")
 political_words = ['trump', 'clinton', 'debate', 'hillary', 'donald']
 def sentize(publication_name):
     with open(publication_name) as inputfile:
@@ -19,12 +19,14 @@ def sentize(publication_name):
     txt_val = publication_name.index('.txt')
     pure_name = publication_name[:txt_val]
 
-    sent_political_pos = []
-    sent_political_neg = []
-    sent_political_neutral = []
-    sent_nonpolitical_pos = []
-    sent_nonpolitical_neg = []
-    sent_nonpolitical_neutral = []
+    sent_political = []
+    sent_nonpolitical = []
+    # sent_political_pos = []
+    # sent_political_neg = []
+    # sent_political_neutral = []
+    # sent_nonpolitical_pos = []
+    # sent_nonpolitical_neg = []
+    # sent_nonpolitical_neutral = []
     x = 0
     for article in data:
             title = article['Title'].encode('ascii', 'ignore')
@@ -36,38 +38,43 @@ def sentize(publication_name):
             piece = {'Title': article['Title'], 'PubDate': article['PubDate'], 'Sentiment': sent, 'Confidence': sentiment['polarity_confidence']}
             print piece['Sentiment']
             if any (word in article['Title'].lower() for word in political_words):
-                if(piece['Sentiment'] == 'positive'):
-                    sent_political_pos.append(piece)
-                elif(piece['Sentiment'] == 'negative'):
-                    sent_political_neg.append(piece)
-                else:
-                    sent_political_neutral.append(piece)
+                sent_political.append(piece)
+                # if(piece['Sentiment'] == 'positive'):
+                #     sent_political_pos.append(piece)
+                # elif(piece['Sentiment'] == 'negative'):
+                #     sent_political_neg.append(piece)
+                # else:
+                #     sent_political_neutral.append(piece)
             else:
-                if(piece['Sentiment'] == 'positive'):
-                    sent_nonpolitical_pos.append(piece)
-                elif(piece['Sentiment'] == 'negative'):
-                    sent_nonpolitical_neg.append(piece)
-                else:
-                    sent_nonpolitical_neutral.append(piece)
+                sent_nonpolitical.append(piece)
+                # if(piece['Sentiment'] == 'positive'):
+                #     sent_nonpolitical_pos.append(piece)
+                # elif(piece['Sentiment'] == 'negative'):
+                #     sent_nonpolitical_neg.append(piece)
+                # else:
+                #     sent_nonpolitical_neutral.append(piece)
             if (x == 60):
                 time.sleep(60)
                 x=0
 
 
     f = open(pure_name + '_political.txt', 'w')
-    f.write("\n Positive: \n")
-    json.dump(sent_political_pos, f)
-    f.write("\n Negative: \n")
-    json.dump(sent_political_neg, f)
-    f.write("\n Neutral: \n")
-    json.dump(sent_political_neutral, f)
+    json.dump(sent_political, f)
+    # f.write("\n Positive: \n")
+    # json.dump(sent_political_pos, f)
+    # f.write("\n Negative: \n")
+    # json.dump(sent_political_neg, f)
+    # f.write("\n Neutral: \n")
+    # json.dump(sent_political_neutral, f)
+
     f2 = open(pure_name + '_nonpolitical.txt', 'w')
-    f2.write("\n Positive: \n")
-    json.dump(sent_nonpolitical_pos, f2)
-    f2.write("\n Negative: \n")
-    json.dump(sent_nonpolitical_neg, f2)
-    f2.write("\n Neutral: \n")
-    json.dump(sent_nonpolitical_neutral, f2)
+    json.dump(sent_nonpolitical, f2)
+    # f2.write("\n Positive: \n")
+    # json.dump(sent_nonpolitical_pos, f2)
+    # f2.write("\n Negative: \n")
+    # json.dump(sent_nonpolitical_neg, f2)
+    # f2.write("\n Neutral: \n")
+    # json.dump(sent_nonpolitical_neutral, f2)
     f.close()
     f2.close()
 
