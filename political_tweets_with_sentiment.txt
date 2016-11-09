@@ -1,0 +1,3 @@
+nyt-20161017-054836_political.txt
+wsj-20161101-025813_political.txt
+nyt-20161023-131346_political.txt

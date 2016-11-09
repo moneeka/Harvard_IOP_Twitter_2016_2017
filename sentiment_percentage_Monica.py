@@ -2,7 +2,14 @@ from urllib2 import urlopen
 import json
 import time
 
-file_names = ['nyt-20161017-054836_political.txt', 'wsj-20161101-025813_political.txt', 'nyt-20161023-131346_political.txt']
+news_data = []
+with open('political_tweets_with_sentiment.txt') as data_file:
+    for line in data_file:
+        if line != None:
+            news_data.append(line.rstrip('\n'))
+data_file.close()
+
+file_names = news_data
 
 def count_sentiment(file_name):
     with open(file_name) as inputfile:
@@ -24,8 +31,12 @@ def count_sentiment(file_name):
     txt_val = file_name.index('-')
     pure_file_name = file_name[:txt_val]
 
+    date_val_beg = file_name.index('-', txt_val) + 1
+    date_val_end = file_name.index('-', date_val_beg)
+    file_date = file_name[date_val_beg:date_val_end]
+
     with open(pure_file_name + '_sentiment_count.txt', 'a') as outputfile:
-        output = "Positive Count: " + str(pos) + " Neutral Count: " + str(neutral) + " Negative Count: " + str(neg)
+        output = "Positive Count: " + str(pos) + " Neutral Count: " + str(neutral) + " Negative Count: " + str(neg) + " Date: " + str(file_date)
         outputfile.write(output)
         outputfile.write("\n")
     outputfile.close()
