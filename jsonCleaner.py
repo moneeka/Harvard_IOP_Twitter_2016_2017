@@ -4,7 +4,7 @@ from urllib2 import urlopen
 import os
 
 
-jsonfiles = ['hashtag_filtered_tweets2016-10-30.json']
+jsonfiles = ['tweets-20161014-072511.json']
 
 os.chdir(os.getcwd()+'/hashtag_data_files')
 
