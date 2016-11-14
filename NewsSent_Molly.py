@@ -33,7 +33,12 @@ def news_sent(data_file, output_file):
         for article in data:
                 title = article['Title'].encode('ascii', 'ignore')
                 print title
-                sentiment= client.Sentiment({'text': title})
+                try:
+                    sentiment= client.Sentiment({'text': title})
+                except:
+                    print("Sleeping for 60 seconds...")
+                    time.sleep(60)
+                    sentiment= client.Sentiment({'text': title})
                 sent = sentiment['polarity']
                 if any (word in article['Title'].lower() for word in neg_words):
                     sent = 'negative'
