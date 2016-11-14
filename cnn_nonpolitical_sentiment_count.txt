@@ -29,3 +29,13 @@ Positive Count: 3 Neutral Count: 36 Negative Count: 16 Date: 20161031
 Positive Count: 1 Neutral Count: 36 Negative Count: 15 Date: 20161101
 Positive Count: 1 Neutral Count: 36 Negative Count: 17 Date: 20161102
 Positive Count: 2 Neutral Count: 38 Negative Count: 14 Date: 20161103
+Positive Count: 5 Neutral Count: 35 Negative Count: 12 Date: 20161103
+Positive Count: 5 Neutral Count: 29 Negative Count: 15 Date: 20161107
+Positive Count: 4 Neutral Count: 30 Negative Count: 14 Date: 20161107
+Positive Count: 3 Neutral Count: 39 Negative Count: 11 Date: 20161108
+Positive Count: 0 Neutral Count: 28 Negative Count: 11 Date: 20161109
+Positive Count: 0 Neutral Count: 25 Negative Count: 10 Date: 20161110
+Positive Count: 1 Neutral Count: 28 Negative Count: 11 Date: 20161110
+Positive Count: 1 Neutral Count: 29 Negative Count: 14 Date: 20161111
+Positive Count: 0 Neutral Count: 30 Negative Count: 15 Date: 20161111
+Positive Count: 0 Neutral Count: 24 Negative Count: 16 Date: 20161112
