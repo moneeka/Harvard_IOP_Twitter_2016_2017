@@ -16,7 +16,7 @@ def news_sent(data_file, output_file):
     #note: only 1 newsource is included here, as the free API does not allow for the number of calls made by all sources
     #other sources: ['fox.txt', 'breitbart.txt', 'cnn.txt', 'wsj.txt']
 
-    client = textapi.Client("ae899f48", "c1535a8c6bd267b39581c7c53d8c10d8")
+    client = textapi.Client("0a5581b7", "780879b90da9570514e40fb31f400d62")
     political_words = ['trump', 'clinton', 'debate', 'hillary', 'donald']
 
     def sentize(publication_name):
