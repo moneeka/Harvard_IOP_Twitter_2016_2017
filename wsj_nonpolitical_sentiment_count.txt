@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 Positive Count: 0 Neutral Count: 10 Negative Count: 1 Date: 20161115
 Positive Count: 0 Neutral Count: 8 Negative Count: 3 Date: 20161114
 Positive Count: 0 Neutral Count: 8 Negative Count: 2 Date: 20161114
