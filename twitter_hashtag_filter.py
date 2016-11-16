@@ -25,7 +25,7 @@ class MyListener(StreamListener):
         self.outname = os.path.sep.join([out_directory, out_fname])
         self.outname = self.outname + str(self.date) + '.json'
         try:
-            self.outfile = open(self.outname, 'w')
+            self.outfile = open(self.outname, 'a')
         except BaseException as e:
             print 'error on file open', str(e)
             exit(1)
@@ -50,14 +50,12 @@ class MyListener(StreamListener):
 
     def use_file(self):
         self.outfile.close()
-        if self.date == date.today():
-            self.date = self.date + '1'
-        else:
+        if self.date != date.today():
             self.date = date.today()
         self.outname = os.path.sep.join([self.directory, self.fname])
         self.outname = self.outname + str(self.date) + '.json'
         try:
-            self.outfile = open(self.outname, 'w')
+            self.outfile = open(self.outname, 'a')
         except BaseException as e:
             print 'error opening new file'
             exit(1)
