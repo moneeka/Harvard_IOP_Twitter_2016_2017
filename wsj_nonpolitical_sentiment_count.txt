@@ -1,61 +1,62 @@
-Positive Count: 0 Neutral Count: 10 Negative Count: 1 Date: 20161115
-Positive Count: 0 Neutral Count: 8 Negative Count: 3 Date: 20161114
-Positive Count: 0 Neutral Count: 8 Negative Count: 2 Date: 20161114
-Positive Count: 0 Neutral Count: 8 Negative Count: 2 Date: 20161114
-Positive Count: 0 Neutral Count: 8 Negative Count: 2 Date: 20161113
-Positive Count: 1 Neutral Count: 7 Negative Count: 1 Date: 20161113
-Positive Count: 0 Neutral Count: 8 Negative Count: 1 Date: 20161112
-Positive Count: 0 Neutral Count: 7 Negative Count: 2 Date: 20161112
-Positive Count: 0 Neutral Count: 6 Negative Count: 1 Date: 20161111
-Positive Count: 0 Neutral Count: 6 Negative Count: 1 Date: 20161111
-Positive Count: 0 Neutral Count: 7 Negative Count: 1 Date: 20161110
-Positive Count: 0 Neutral Count: 5 Negative Count: 0 Date: 20161110
-Positive Count: 0 Neutral Count: 7 Negative Count: 1 Date: 20161109
-Positive Count: 0 Neutral Count: 8 Negative Count: 1 Date: 20161109
-Positive Count: 0 Neutral Count: 10 Negative Count: 1 Date: 20161109
-Positive Count: 0 Neutral Count: 10 Negative Count: 1 Date: 20161109
-Positive Count: 0 Neutral Count: 10 Negative Count: 1 Date: 20161108
-Positive Count: 0 Neutral Count: 11 Negative Count: 0 Date: 20161108
-Positive Count: 0 Neutral Count: 11 Negative Count: 0 Date: 20161107
-Positive Count: 0 Neutral Count: 9 Negative Count: 2 Date: 20161107
-Positive Count: 0 Neutral Count: 8 Negative Count: 2 Date: 20161104
-Positive Count: 0 Neutral Count: 8 Negative Count: 2 Date: 20161104
-Positive Count: 0 Neutral Count: 8 Negative Count: 3 Date: 20161104
-Positive Count: 0 Neutral Count: 8 Negative Count: 3 Date: 20161103
-Positive Count: 0 Neutral Count: 8 Negative Count: 2 Date: 20161103
-Positive Count: 0 Neutral Count: 7 Negative Count: 4 Date: 20161102
-Positive Count: 0 Neutral Count: 7 Negative Count: 4 Date: 20161102
-Positive Count: 0 Neutral Count: 8 Negative Count: 3 Date: 20161102
-Positive Count: 0 Neutral Count: 7 Negative Count: 3 Date: 20161101
-Positive Count: 0 Neutral Count: 7 Negative Count: 3 Date: 20161101
-Positive Count: 0 Neutral Count: 7 Negative Count: 3 Date: 20161101
-Positive Count: 0 Neutral Count: 7 Negative Count: 3 Date: 20161101
-Positive Count: 0 Neutral Count: 9 Negative Count: 2 Date: 20161101
-Positive Count: 0 Neutral Count: 10 Negative Count: 1 Date: 20161031
-Positive Count: 0 Neutral Count: 8 Negative Count: 3 Date: 20161031
-Positive Count: 0 Neutral Count: 9 Negative Count: 2 Date: 20161030
-Positive Count: 0 Neutral Count: 8 Negative Count: 2 Date: 20161030
-Positive Count: 0 Neutral Count: 10 Negative Count: 0 Date: 20161029
-Positive Count: 0 Neutral Count: 10 Negative Count: 0 Date: 20161029
-Positive Count: 1 Neutral Count: 9 Negative Count: 0 Date: 20161028
-Positive Count: 0 Neutral Count: 9 Negative Count: 2 Date: 20161028
-Positive Count: 0 Neutral Count: 9 Negative Count: 2 Date: 20161027
-Positive Count: 0 Neutral Count: 7 Negative Count: 4 Date: 20161027
-Positive Count: 0 Neutral Count: 7 Negative Count: 4 Date: 20161026
-Positive Count: 0 Neutral Count: 9 Negative Count: 2 Date: 20161026
-Positive Count: 0 Neutral Count: 8 Negative Count: 3 Date: 20161025
-Positive Count: 0 Neutral Count: 7 Negative Count: 3 Date: 20161025
-Positive Count: 0 Neutral Count: 8 Negative Count: 3 Date: 20161024
-Positive Count: 0 Neutral Count: 8 Negative Count: 3 Date: 20161024
-Positive Count: 0 Neutral Count: 10 Negative Count: 1 Date: 20161024
-Positive Count: 0 Neutral Count: 9 Negative Count: 2 Date: 20161023
-Positive Count: 0 Neutral Count: 10 Negative Count: 1 Date: 20161020
-Positive Count: 0 Neutral Count: 8 Negative Count: 3 Date: 20161019
-Positive Count: 0 Neutral Count: 9 Negative Count: 2 Date: 20161019
-Positive Count: 0 Neutral Count: 9 Negative Count: 2 Date: 20161018
-Positive Count: 0 Neutral Count: 7 Negative Count: 4 Date: 20161018
-Positive Count: 0 Neutral Count: 6 Negative Count: 5 Date: 20161017
-Positive Count: 0 Neutral Count: 10 Negative Count: 1 Date: 20161017
-Positive Count: 1 Neutral Count: 8 Negative Count: 2 Date: 20161015
-Positive Count: 1 Neutral Count: 7 Negative Count: 3 Date: 20161014
-Positive Count: 0 Neutral Count: 8 Negative Count: 3 Date: 20161013
+Positive, Neutral, Negative, Date
+0,10,1,2016-11-15
+0,8,3,2016-11-14
+0,8,2,2016-11-14
+0,8,2,2016-11-14
+0,8,2,2016-11-13
+1,7,1,2016-11-13
+0,8,1,2016-11-12
+0,7,2,2016-11-12
+0,6,1,2016-11-11
+0,6,1,2016-11-11
+0,7,1,2016-11-10
+0,5,0,2016-11-10
+0,7,1,2016-11-09
+0,8,1,2016-11-09
+0,10,1,2016-11-09
+0,10,1,2016-11-09
+0,10,1,2016-11-08
+0,11,0,2016-11-08
+0,11,0,2016-11-07
+0,9,2,2016-11-07
+0,8,2,2016-11-04
+0,8,2,2016-11-04
+0,8,3,2016-11-04
+0,8,3,2016-11-03
+0,8,2,2016-11-03
+0,7,4,2016-11-02
+0,7,4,2016-11-02
+0,8,3,2016-11-02
+0,7,3,2016-11-01
+0,7,3,2016-11-01
+0,7,3,2016-11-01
+0,7,3,2016-11-01
+0,9,2,2016-11-01
+0,10,1,2016-10-31
+0,8,3,2016-10-31
+0,9,2,2016-10-30
+0,8,2,2016-10-30
+0,10,0,2016-10-29
+0,10,0,2016-10-29
+1,9,0,2016-10-28
+0,9,2,2016-10-28
+0,9,2,2016-10-27
+0,7,4,2016-10-27
+0,7,4,2016-10-26
+0,9,2,2016-10-26
+0,8,3,2016-10-25
+0,7,3,2016-10-25
+0,8,3,2016-10-24
+0,8,3,2016-10-24
+0,10,1,2016-10-24
+0,9,2,2016-10-23
+0,10,1,2016-10-20
+0,8,3,2016-10-19
+0,9,2,2016-10-19
+0,9,2,2016-10-18
+0,7,4,2016-10-18
+0,6,5,2016-10-17
+0,10,1,2016-10-17
+1,8,2,2016-10-15
+1,7,3,2016-10-14
+0,8,3,2016-10-13
