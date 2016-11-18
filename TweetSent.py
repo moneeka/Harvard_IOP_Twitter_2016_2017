@@ -3,7 +3,6 @@
 from aylienapiclient import textapi
 from urllib2 import urlopen
 import json
-import simplejson
 import time
 import os
 
@@ -30,7 +29,7 @@ def tweet_sent(data_file):
 
     def sentize(file_name):
         with open(file_name) as inputfile:
-            data = simplejson.load(inputfile)
+            data = json.load(inputfile)
         inputfile.close()
         
 

@@ -12,11 +12,11 @@ def json_clean(data_file, output_file):
 
 	names = jsonfiles
 
-	def cleaner(tfile):
+	def cleaner(t_file):
 		
 		jsons = []
 
-		with open(tfile,'rU') as tweet_file:
+		with open(t_file,'rU') as tweet_file:
 			for tweet in tweet_file:
 				try:
 					j1 = json.loads(tweet[7:])
@@ -24,18 +24,18 @@ def json_clean(data_file, output_file):
 				except:
 					pass
 
-			tweet_file.close()
+		tweet_file.close()
 
-		txt_val = tfile.index('.json')
-        pure_name = tfile[:txt_val]
+		txt_val = t_file.index('.json')
+		pure_name = t_file[:txt_val]
 
-        f = open(pure_name+'_cleaned.txt', 'w')
-        json.dump(jsons, f)
-        f.close()
+		f = open(pure_name+'_cleaned.txt', 'w')
+		json.dump(jsons, f)
+		f.close()
 
-        f1 = open(output_file, 'w')
-        f1.write(pure_name+'_cleaned.txt' + '\n')
-        f1.close()
+		f1 = open(output_file, 'w')
+		f1.write(pure_name+'_cleaned.txt' + '\n')
+		f1.close()
 
 	for jsonfile in jsonfiles:
 		cleaner(jsonfile)
