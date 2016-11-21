@@ -26,7 +26,8 @@ def tweet_sent(data_file):
     anti_liberal_w = ['#libtards','#liberallogic','#nobama','#stophillary','#nohillary','#notreadyforhillary','#neverhillary','#toosavagefordemocrats'
     '#hillaryforprison2016', '#hillaryforprison', '#fuckhillary', '#neverhillary', '#hillno', '#imnotwithher', '#clintonnewsnetwork', '#hillaryforprison2016',
     '#lockherup', '#crookedhillary']
-
+    with open('tweets_sentiment_count.csv', 'a') as outputfile:
+       outputfile.write('Pro Liberal, Pro Conservative, Anti Liberal, Anti Conservative, Date\n')
     def sentize(file_name):
         with open(file_name) as inputfile:
             data = json.load(inputfile)
@@ -40,8 +41,17 @@ def tweet_sent(data_file):
         anti_liberal = 0
         total = 0
 
+        txt_val = file_name.index('_cleaned')
+        pure_file_name = file_name[:txt_val]
+        date_val = file_name.index('2016')
+        date = pure_file_name[date_val:]
+        print date
+
         for tweet in data:
-            content = tweet['text'].encode('ascii', 'ignore')
+            try:
+                content = tweet['text'].encode('ascii', 'ignore')
+            except:
+                continue
             if any (word in content.lower() for word in pro_conservative_w):
                 pro_conservative += 1
                 total +=1
@@ -58,25 +68,18 @@ def tweet_sent(data_file):
                 anti_liberal += 1
                 total +=1
 
-        txt_val = file_name.index('-')
-        pure_file_name = file_name[:txt_val]
-
-        date_val_beg = file_name.index('-', txt_val) + 1
-        date_val_end = file_name.index('-', date_val_beg)
-        file_date = file_name[date_val_beg:date_val_end]
 
         pro_liberal = ((pro_liberal * 1.0) / total)*100.0
         pro_conservative = ((pro_conservative*1.0) / total)* 100.0
         anti_liberal = ((anti_liberal*1.0) / total)* 100.0
         anti_conservative = ((anti_conservative*1.0) / total)* 100.0
         pro_3rd = ((pro_3rd*1.0) / total)* 100.0
+        
 
-        with open(pure_file_name + '_sentiment_count.txt', 'a') as outputfile:
-            output = "Pro Liberal: " + str(pro_liberal) + " Pro Conservative: " + str(pro_conservative) + " Anti Liberal: " + str(anti_liberal) + " Anti Conservative: " + str(anti_conservative) + " Pro 3rd: " + str(pro_3rd) + " Date: " + str(file_date)
+        with open('tweets_sentiment_count.csv', 'a') as outputfile:
+            output = str(pro_liberal) + ',' + str(pro_conservative) + ',' + str(anti_liberal) + ',' + str(anti_conservative) + ',' + date
             outputfile.write(output)
             outputfile.write("\n")
         outputfile.close()
-
-
     for t_file in tweet_files:
         sentize(t_file)
