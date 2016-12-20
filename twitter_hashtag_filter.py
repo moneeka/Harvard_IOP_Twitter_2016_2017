@@ -5,15 +5,41 @@ from tweepy.streaming import StreamListener
 import os
 from datetime import date
 
-consumer_key = "#"
-consumer_secret = "#"
-access_token = "#"
-access_secret = "#"
-        
-auth = OAuthHandler(consumer_key, consumer_secret)
-auth.set_access_token(access_token, access_secret)
 
-api = tweepy.API(auth)
+
+def load_dict(auth_d, l):
+    '''
+    Load the contents of a line into a dictionary, using the first word of the
+    line as the key and the rest of the line as the value.
+    :param auth_d: The dictionary to be populated
+    :param l: The line that contains the key and the value, both as strings
+    :return: None
+    '''
+    s = l.find(' ')
+    k = l[ :s]
+    v = l[s+1:]
+    auth_d[k] = v
+
+def make_auth(from_file):
+    '''
+    Create a tweepy auth object. This will use the contents of the file that has been handed in as the
+    access token and comsumer keys. The assumption is that the first four lines of the file contain the
+    name of the auth parameter followed by a space followed by the value of the parameter.
+    :param from_file: Name of the file containing the authentication information
+    :return: A tweepy auth object
+    '''
+    fin = open(from_file, 'r')
+    auth_dict = {}
+    for i in range(0,4):
+        l = fin.readline()
+        load_dict(auth_dict, l[:-1])
+
+    auth = OAuthHandler(auth_dict['consumer_key'], auth_dict['consumer_secret'])
+    auth.set_access_token(auth_dict['access_token'], auth_dict['access_secret'])
+    fin.close()
+
+    return auth
+
 
 class MyListener(StreamListener):
 
@@ -65,6 +91,10 @@ class MyListener(StreamListener):
             return True
         else:
             return False
+
+
+auth = make_auth('authenticationKeys.txt')
+api = tweepy.API(auth)
 
 data = ''
 with open('hashtag_data_files/political_hashtags_for_twitter.txt', 'r') as data_file:
