@@ -1,0 +1,39 @@
+12/21
+Making changes in twitter_hashtag_filter.py to allow more of the environment to be read in through
+a configuration file. This work began with adding the ability to read the information allowing
+authentication from a file. The technique, which built a dictionary from the file, is easily generalized
+to allow reading other forms of configuration from a file.
+
+Separated out the reading of the file and generation of the dictionary from the code that created the
+auth object. Added the ability to have comment lines in the configuration file; these will be marked
+with an initial '#' and any such line will be skipped. Allowed specifying the filter by specifying a file
+in the configuration file that will list a group of terms that will be the filter data.
+
+Set up a configuration file that allows twitter_hashtag_filter.py to gather a set of tweets that contain
+specified words. Added a tag file that specified a number of terms that are related to politics, so we could
+gather tweets on the subject to look at the sets of hashtags used in those tweets, and track those
+hashtags over time. Set this to running on deepthought.
+
+12/22
+Created a configuration file
+Wrote count_hashtags.py, which will go through a set of saved tweets, convert them to json records, and
+look at the hashtags. The program builds a dictionary keyed by hashtag text with value the number of tweets
+that have that hashtag text.
+
+12/23
+Added some error checking to count_hashtags.py, to insure that if there are no entries in the
+json the program won't fail.
+
+12/25:
+
+Getting real about the error checking in count_hashtags.py. Now the whole of the code that converts
+the tweet to json and grabs the hashtags is inside a try block; if something wrong happens the dictionary
+is not updated but a count of the number of bad lines is incremented. Also added a counter for the
+total number of lines. The total number of lines and the number of bad lines will be printed out
+on the command line when the program is run.
+
+1/6
+
+Finished up two visualizaitons for the hashtags-- tag_cloud.py that creates a wordcloud from the hashtags, and
+bar_chart_counts.py that will create a (horizontal) bar chart for the tags and counts. Both take lists of tag,count
+pairs stored in the files created by count_hashtags.py

@@ -2,7 +2,7 @@ import tweepy
 from tweepy import OAuthHandler
 from tweepy import Stream
 from tweepy.streaming import StreamListener
-import os
+import os, sys
 from datetime import date
 
 
@@ -20,23 +20,45 @@ def load_dict(auth_d, l):
     v = l[s+1:]
     auth_d[k] = v
 
-def make_auth(from_file):
+def read_config_file(file_name):
     '''
-    Create a tweepy auth object. This will use the contents of the file that has been handed in as the
-    access token and comsumer keys. The assumption is that the first four lines of the file contain the
-    name of the auth parameter followed by a space followed by the value of the parameter.
-    :param from_file: Name of the file containing the authentication information
+    Read a set of configuration parameters from a text file, and return a dictionary with those parameters.
+
+    This assumes that the configuration file has each configuration parameter on a line, with the name of the parameter
+    as the first word of the line, followed by a single space, followed by the value of the parameter. All names and
+    parameters are assumed to be strings.
+
+    The function will read each line, and place the name/parameter pair into a dictionary keyed by the name with value
+    the parameter. Conversion of the parameters to something other than string should be done when the parameter is used.
+
+    :param file_name: Name of the file containing the configuration
+    :return: a dictionary with key the name of the configuration parameter and value the configuration value
+    '''
+    config_dict = {}
+    fin = open(file_name, 'r')
+
+    for line in fin:
+        if line == '\n':
+            pass
+        elif line[0] == '#':
+            pass
+        else:
+            load_dict(config_dict, line[:-1])
+
+    fin.close()
+    return config_dict
+
+
+def make_auth(auth_dict):
+    '''
+    Create a tweepy auth object. This will use the contents of the dictionary that has been handed in that contains the
+    access token and consumer keys. The assumption is that the dictionary contains the authorization tokens needed
+    :param auth_dict: dictionary containing the authentication information
     :return: A tweepy auth object
     '''
-    fin = open(from_file, 'r')
-    auth_dict = {}
-    for i in range(0,4):
-        l = fin.readline()
-        load_dict(auth_dict, l[:-1])
 
     auth = OAuthHandler(auth_dict['consumer_key'], auth_dict['consumer_secret'])
     auth.set_access_token(auth_dict['access_token'], auth_dict['access_secret'])
-    fin.close()
 
     return auth
 
@@ -59,7 +81,7 @@ class MyListener(StreamListener):
     def on_data(self, t_data):
         try:
             self.outfile.write(t_data)
-            if self.count < 1000:
+            if self.count < 100:
                 self.count += 1
             else:
                 self.count = 1
@@ -92,18 +114,44 @@ class MyListener(StreamListener):
         else:
             return False
 
+def get_filter_list(config_d):
+    '''
+    Creates a string of comma-separated entries from a file. If there is no hashtag_file entry in
+    the configuration file, returns the empty string.
+    :param config_d: A
+    :return:
+    '''
+    ret_data = ''
+    if 'filter_file' in config_d:
+        for line in open(config_d['filter_file'], 'r'):
+            if line != '\n':
+                ret_data += ',' + line[:-1]
+    return ret_data
 
-auth = make_auth('authenticationKeys.txt')
-api = tweepy.API(auth)
+if __name__ == '__main__':
+    if len(sys.argv) < 2:
+        print 'usage: python twitter_hashtag_filter.py config_file_name'
+        sys.exit(1)
 
-data = ''
-with open('hashtag_data_files/political_hashtags_for_twitter.txt', 'r') as data_file:
-    for line in data_file:
-        if line != None:
-            data += ', ' + line
-data_file.close()
+    fname = sys.argv[1]
+    config = read_config_file(fname)
 
+    auth = make_auth(config)
+    api = tweepy.API(auth)
 
+    data = get_filter_list(config)
 
-twitter_stream = Stream(auth, MyListener('hashtag_data_files', 'hashtag_filtered_tweets'))
-twitter_stream.filter(track=[data])
+    if 'output_directory' in config:
+        out_dir = config['output_directory']
+    else:
+        out_dir = '.'
+    if 'output_file' in config:
+        out_file = config['output_file']
+    else:
+        out_file = 'test_output'
+    twitter_stream = Stream(auth, MyListener(out_dir, out_file))
+
+    if data != '':
+        twitter_stream.filter(track=[data])
+    else:
+        print 'No terms specified for tracking; program exiting'
