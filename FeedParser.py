@@ -30,7 +30,7 @@ def scrape_site(site_url, out_fname):
     for entry in d['entries']:
         title = entry['title']
         summary = (entry['summary']).encode('ascii', 'ignore')
-        article = {'Title': title, 'Summary': summary, 'PubDate': entry.published}
+        article = {'Title': title, 'Summary': summary}
         try:
             article['Pubdate'] = entry.published
         except:
