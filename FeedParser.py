@@ -31,6 +31,11 @@ def scrape_site(site_url, out_fname):
         title = entry['title']
         summary = (entry['summary']).encode('ascii', 'ignore')
         article = {'Title': title, 'Summary': summary, 'PubDate': entry.published}
+        try:
+            article['Pubdate'] = entry.published
+        except:
+            article['Pubdate'] = 'No date of publication'
+
         articles.append(article)
     json.dump(articles, f)
     f.close()
