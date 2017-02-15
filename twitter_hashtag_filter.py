@@ -149,9 +149,16 @@ if __name__ == '__main__':
         out_file = config['output_file']
     else:
         out_file = 'test_output'
-    twitter_stream = Stream(auth, MyListener(out_dir, out_file))
 
-    if data != '':
-        twitter_stream.filter(track=[data])
-    else:
-        print 'No terms specified for tracking; program exiting'
+    if data == '':
+        print 'No terms specified for tracking, program exiting'
+        sys.exit(1)
+
+    while True:
+        try:
+            twitter_stream = Stream(auth, MyListener(out_dir, out_file))
+            twitter_stream.filter(track=[data])
+        except KeyboardInterrupt:
+            sys.exit(0)
+        except:
+            pass
