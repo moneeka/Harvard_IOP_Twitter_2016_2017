@@ -1,1 +1,7 @@
-hashtag_filtered_tweets2016-10-24-1.json
+xag_2016_11_10.json
+xah_2016_11_10.json
+xai_2016_11_10.json
+xaj_2016_11_10.json
+xak_2016_11_10.json
+xal_2016_11_10.json
+xam_2016_11_10.json
