@@ -11,8 +11,8 @@ def retweeterDict(infile):
 			for t in tweet:
 				retweet = t['retweeted_status']
 				if(any(retweet)):
-					key = retweet['user']['screen_name'] + '%' + retweet['text']
-					valueText = t['user']['screen_name'] + '%' + t['created_at'] + '%' + t['user']['location']
+					key = retweet['user']['screen_name'] + '%' + retweet['user']['user_id'] + '%' + retweet['text'] + '%' + retweet['tweet_id']
+					valueText = t['user']['screen_name'] + '%' + t['created_at'] + '%' + t['user']['location'] + '%' + t['user']['user_id']
 					value = [valueText]
 					if key in dictionary:
 						originalList = dictionary[key]

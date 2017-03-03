@@ -23,11 +23,13 @@ def tweet_cleaner(infile, outfile):
         obj['place'] = d['place']
         obj['retweeted'] = d['retweeted']
         obj['favorited'] = d['favorited']
+        obj['tweet_id'] = d['id']
         # user subdict
         user_subobj = {}
         user_subobj['verified'] = d['user']['verified']
         user_subobj['friends_count'] = d['user']['friends_count']
         user_subobj['screen_name'] = str(d['user']['screen_name'])
+        user_subobj['user_id'] = d['user']['id']
         user_subobj['followers_count'] = d['user']['followers_count']
         user_subobj['favourites_count'] = d['user']['favourites_count']
         user_subobj['statuses_count'] = d['user']['statuses_count']
@@ -40,6 +42,7 @@ def tweet_cleaner(infile, outfile):
         retweet_subobj = {}
         if 'retweeted_status' in d:
             retweet_subobj['created_at'] = d['retweeted_status']['created_at']
+            retweet_subobj['tweet_id'] = d['retweeted_status']['id']
             retweet_subobj['text'] = d['retweeted_status']['text']
             retweet_subobj['in_reply_to_user_id_str'] = d['retweeted_status']['in_reply_to_user_id_str']
             retweet_subobj['in_reply_to_screen_name'] = d['retweeted_status']['in_reply_to_screen_name']
@@ -53,6 +56,7 @@ def tweet_cleaner(infile, outfile):
             retweet_user_subobj = {}
             retweet_user_subobj['verified'] = d['retweeted_status']['user']['verified']
             retweet_user_subobj['screen_name'] = d['retweeted_status']['user']['screen_name']
+            retweet_user_subobj['user_id'] = d['retweeted_status']['user']['id']
             retweet_user_subobj['location'] = d['retweeted_status']['user']['location']
             retweet_user_subobj['friends_count'] = d['retweeted_status']['user']['friends_count']
             retweet_user_subobj['followers_count'] = d['retweeted_status']['user']['followers_count']
