@@ -1,3 +1,8 @@
+2/12
+Changed twitter_hashtag_filter.py to wrap the creation and running of the twitter stream in a try: block. If any exception
+other than a keyboardInterrupted exception is thrown, the stream will be re-created and and filter re-started. This should
+keep the program from exiting on some of the more standard errors that are thrown by the stream reader.
+
 12/21
 Making changes in twitter_hashtag_filter.py to allow more of the environment to be read in through
 a configuration file. This work began with adding the ability to read the information allowing
