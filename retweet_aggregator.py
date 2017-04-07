@@ -32,7 +32,7 @@ def retweet_aggregator(infile, date_string):
 
 				else:
 					retweet_dates[date_string] = 1
-					retweet_aggregator_dict[original_tweet_id] = retweet_dates
+					retweet_aggregator_dict[original_tweet_id].update(retweet_dates)
 			
 			else:
 				retweet_dates[date_string] = 1
