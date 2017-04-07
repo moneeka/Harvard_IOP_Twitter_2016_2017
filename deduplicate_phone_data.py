@@ -34,6 +34,6 @@ for n in files:
 		if not (date_string[0:2] == "22"):
 			string_1 = "phoneTweets" + date_string + ".json"
 			string_2 = "phoneTweets2" + date_string + ".json"
-			outfile_name = "mergedPhoneData_" + date_string + ".json"
+			outfile_name = "merged_phone_data_" + date_string + ".json"
 			
 			clean_file(string_1, string_2, outfile_name)
