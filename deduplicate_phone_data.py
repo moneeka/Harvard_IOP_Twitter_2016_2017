@@ -23,7 +23,9 @@ def clean_file (infile_1, infile_2, outfile_name):
 
 	with open(outfile_name, 'w') as outfile:
 		print ("writing to " + outfile_name)
-		outfile.write(json.dumps(data))
+		for d in data:
+			outfile.write(json.dumps(d))
+			outfile.write("\n")
 
 original_data_path = os.path.dirname(os.path.abspath(__file__))
 files = os.listdir(original_data_path)
