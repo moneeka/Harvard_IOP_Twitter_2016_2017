@@ -31,11 +31,12 @@ original_data_path = os.path.dirname(os.path.abspath(__file__))
 files = os.listdir(original_data_path)
 
 for n in files:
-	if 'phoneTweets' in n:
+	if 'phoneTweets22' in n:
 		date_string = n[11:-5]
-		if not (date_string[0:2] == "22"):
-			string_1 = "phoneTweets" + date_string + ".json"
-			string_2 = "phoneTweets2" + date_string + ".json"
-			outfile_name = "merged_phone_data_" + date_string + ".json"
+		if (date_string[0:2] == "22"):
+			adjusted_date_string = date_string[1::]
+			string_1 = "phoneTweets" + adjusted_date_string + ".json"
+			string_2 = "phoneTweets2" + adjusted_date_string + ".json"
+			outfile_name = "merged_phone_data_" + adjusted_date_string + ".json"
 			
 			clean_file(string_1, string_2, outfile_name)

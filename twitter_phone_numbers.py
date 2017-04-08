@@ -76,9 +76,9 @@ files = os.listdir(original_data_path)
 
 # Assume that original data files contain the phrase 'merged_phone_data'
 for n in files:
-    if 'merged_phone_data_' in n:
+    if 'phoneTweets20' in n: 
         # separate out the parts of the name
-        date_string = n[18:-5]
+        date_string = n[16:-5]
         print "Cleaning file: " + date_string
         outfile_name = "clean_phone_data_" + date_string + ".json"
         tweet_cleaner(n, outfile_name)

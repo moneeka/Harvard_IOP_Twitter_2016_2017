@@ -19,8 +19,10 @@ def retweet_aggregator(infile, date_string):
 	for tweet in data:
 		retweet_dates = {}
 		if tweet['retweeted_status'] == {}:
-			retweet_dates[date_string] = 1
+			retweet_dates[date_string] = 0
+			retweet_dates["Text"] = tweet['text']
 			retweet_aggregator_dict[str(tweet["tweet_id"])] = retweet_dates
+			j+=1
 
 		else:
 			original_tweet_id = str(tweet['retweeted_status']['tweet_id'])
@@ -29,14 +31,18 @@ def retweet_aggregator(infile, date_string):
 
 				if date_string in retweet_aggregator_dict[original_tweet_id]:
 					retweet_aggregator_dict[original_tweet_id][date_string] += 1
+					k+=1
 
 				else:
-					retweet_dates[date_string] = 1
+					retweet_dates[date_string] = 1					
 					retweet_aggregator_dict[original_tweet_id].update(retweet_dates)
+					j+= 1
 			
 			else:
 				retweet_dates[date_string] = 1
+				retweet_dates["Text"] = tweet['retweeted_status']['text']
 				retweet_aggregator_dict[original_tweet_id] = retweet_dates
+				j+=1
 
 	print "total original tweets: " + str(j)
 	print "total retweets: " + str(k)
