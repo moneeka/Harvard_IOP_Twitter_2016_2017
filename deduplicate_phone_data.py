@@ -38,5 +38,5 @@ for n in files:
 			string_1 = "phoneTweets" + adjusted_date_string + ".json"
 			string_2 = "phoneTweets2" + adjusted_date_string + ".json"
 			outfile_name = "merged_phone_data_" + adjusted_date_string + ".json"
-			
-			clean_file(string_1, string_2, outfile_name)
+			if not outfile_name in files:
+				clean_file(string_1, string_2, outfile_name)

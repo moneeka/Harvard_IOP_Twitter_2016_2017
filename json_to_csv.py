@@ -14,9 +14,7 @@ def convert_to_csv(infile_name, outfile_name):
 				id_string = line[1:19]
 				tweet_object = json.loads(line[22:])
 				data.append({"id":id_string, "tweet":tweet_object})
-				print("succeed")
 			except:
-				print("fail")
 				continue
 	
 	with open (outfile_name, 'w') as outfile:

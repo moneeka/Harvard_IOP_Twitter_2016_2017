@@ -2,6 +2,7 @@ import sys
 import deduplicate_phone_data
 import twitter_phone_numbers
 import retweet_aggregator
+import json_to_csv
 
 def main(argv):
 
@@ -10,6 +11,8 @@ def main(argv):
 	deduplicate_phone_data
 	twitter_phone_numbers
 	retweet_aggregator
+	json_to_csv
+
 
 if __name__ == "__main__":
    main(sys.argv[1:])
