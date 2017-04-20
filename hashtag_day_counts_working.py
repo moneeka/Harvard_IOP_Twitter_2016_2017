@@ -24,7 +24,6 @@ for doc_name in data_files:
 
 #print hashtag_date_counts
 
-sorted_x = sorted(hashtag_date_counts.items(), key=operator.itemgetter(1))
 print hashtag_date_counts["trump"]
 for k,v in hashtag_date_counts.items():
 	print k,v
