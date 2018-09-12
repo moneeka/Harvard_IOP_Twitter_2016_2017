@@ -1,4 +1,4 @@
-import os, cPickle
+import os, pickle
 
 def build_dict(l_in):
     '''
@@ -19,12 +19,12 @@ def build_dict(l_in):
 if __name__ == '__main__':
     dir_l = os.listdir('.')
     for fname in dir_l:
-        print fname
+        print(fname)
         in_f = open(fname, 'r')
-        in_l = cPickle.load(in_f)
+        in_l = pickle.load(in_f)
         out_d = build_dict(in_l)
         out_fname = '_d'.join([fname[:-4], '.pkl'])
         out_f = open(out_fname, 'w')
-        cPickle.dump(out_d, out_f)
+        pickle.dump(out_d, out_f)
         in_f.close()
         out_f.close()

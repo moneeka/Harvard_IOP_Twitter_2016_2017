@@ -75,7 +75,8 @@ class MyListener(StreamListener):
         try:
             self.outfile = open(self.outname, 'a')
         except BaseException as e:
-            print 'error on file open', str(e)
+            print(self.outname)
+            print('error on file open'+ str(e))
             exit(1)
 
     def on_data(self, t_data):
@@ -105,7 +106,7 @@ class MyListener(StreamListener):
         try:
             self.outfile = open(self.outname, 'a')
         except BaseException as e:
-            print 'error opening new file'
+            print('error opening new file')
             exit(1)
 
     def check_new_date(self):
@@ -130,7 +131,7 @@ def get_filter_list(config_d):
 
 if __name__ == '__main__':
     if len(sys.argv) < 2:
-        print 'usage: python twitter_hashtag_filter.py config_file_name'
+        print('usage: python twitter_hashtag_filter.py config_file_name')
         sys.exit(1)
 
     fname = sys.argv[1]
@@ -151,7 +152,7 @@ if __name__ == '__main__':
         out_file = 'test_output'
 
     if data == '':
-        print 'No terms specified for tracking, program exiting'
+        print('No terms specified for tracking, program exiting')
         sys.exit(1)
 
     while True:
